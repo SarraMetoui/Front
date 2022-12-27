@@ -36,6 +36,7 @@ import { ErrorInterceptor,TokenInterceptor } from './services/token.interceptor'
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule, CanActivate } from '@angular/router';
 import { AuthGuardService as AuthGuard } from './services/auth-guard.service';
+import { LandingLayoutComponent } from './shared/components/layouts/landing-layout/landing-layout.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { AuthGuardService as AuthGuard } from './services/auth-guard.service';
     NavSearchComponent,
     NavRightComponent,
     ConfigurationComponent,
-    ToggleFullScreenDirective
+    ToggleFullScreenDirective,
+    LandingLayoutComponent
     ],
   imports: [
     BrowserModule,
@@ -67,9 +69,10 @@ import { AuthGuardService as AuthGuard } from './services/auth-guard.service';
     FormsModule,
     StoreModule.forRoot(reducers, {}),
     EffectsModule.forRoot([AuthEffects]),
-    NgbTabsetModule
+    NgbTabsetModule,
+    RouterModule
   ],
-  providers: [ AuthService,   AuthGuard,
+  providers: [NavigationItem, AuthService,   AuthGuard,
 
     {
       provide: HTTP_INTERCEPTORS,
@@ -81,6 +84,7 @@ import { AuthGuardService as AuthGuard } from './services/auth-guard.service';
       useClass: ErrorInterceptor,
       multi: true
     }],
-  bootstrap: [AppComponent]
+   
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

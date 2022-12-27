@@ -27,40 +27,78 @@ export interface Navigation extends NavigationItem {
 
 const NavigationItems = [
   {
-    id: 'navigation',
+    id: 'Dashboard',
     title: 'Navigation',
     type: 'group',
     icon: 'feather icon-monitor',
     children: [
       {
-        id: 'dashboard',
+        id: 'statistics',
         title: 'Dashboard',
         type: 'item',
         url: '/dashboard/default',
         icon: 'feather icon-home',
         classes: 'nav-item'
-      },
+      }
+    ]
+  },
+  {
+    id: 'ui-element',
+    title: 'Users',
+    type: 'group',
+    icon: 'feather icon-layers',
+    children: [
       {
-        id: 'page-layouts',
-        title: 'Page Layouts',
+        id: 'basic',
+        title: 'Users',
         type: 'collapse',
-        icon: 'feather icon-layout',
+        icon: 'feather icon-box',
         children: [
           {
-            id: 'vertical',
-            title: 'Vertical',
+            id: 'alert',
+            title: 'Users List',
             type: 'item',
-            url: '/layout/static',
-            target: true
+            url: '/users'
           },
           {
-            id: 'horizontal',
-            title: 'Horizontal',
+            id: 'button',
+            title: 'Projects List',
             type: 'item',
-            url: '/layout/horizontal',
-            target: true
+            url: 'account'
           }
         ]
+      }
+    ]
+  },
+  {
+    id: 'Projects',
+    title: 'Projects',
+    type: 'group',
+    icon: 'feather icon-monitor',
+    children: [
+      {
+        id: 'statistics',
+        title: 'Projects List',
+        type: 'item',
+        url: '/projects',
+        icon: 'feather icon-home',
+        classes: 'nav-item'
+      }
+    ]
+  },
+  {
+    id: 'Tasks',
+    title: 'Tasks',
+    type: 'group',
+    icon: 'feather icon-monitor',
+    children: [
+      {
+        id: 'statistics',
+        title: 'Tasks',
+        type: 'item',
+        url: '/tasks',
+        icon: 'feather icon-home',
+        classes: 'nav-item'
       }
     ]
   },
@@ -264,6 +302,7 @@ const NavigationItems = [
       }
     ]
   }
+  
 ];
 
 @Injectable()

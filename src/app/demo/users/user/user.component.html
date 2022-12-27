@@ -1,0 +1,60 @@
+<div class="col-xl-50 col-md-12">
+    <app-card cardTitle="Users" cardClass="table-card" blockClass="p-0">
+      <div class="table-responsive">
+        <table class="table table-hover mb-0">
+          <thead>
+            <tr>
+              <th>
+                Name
+              </th>
+              <th>Email</th>
+              <th>Role</th>
+              <th class="text-right">Priority</th>
+              <th > Manage </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users">
+              <td>
+             
+                <div class="d-inline-block align-middle">
+                  <img src="assets/images/user/avatar-4.jpg" alt="user image" class="img-radius wid-40 align-top m-r-15">
+                  <div class="d-inline-block">
+                    <h6>{{user.name}}</h6>
+                    <p class="text-muted m-b-0">Graphics Designer</p>
+                  </div>
+                </div>
+              </td>
+              <td>{{user.email}}</td>
+              <td>{{user.role}}</td>
+              <td class="text-right"><label class="badge badge-light-danger">high</label></td>
+              <td> 
+                <button routerLink="/users/edituser/{{user.id}}" class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                <button (click)="exampleModalCenter.show()" class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i> </button>
+                <div class="col-xl-4 col-md-6">
+
+      
+                    <app-ui-modal #exampleModalCenter dialogClass="modal-dialog-centered">
+                      <div class="app-modal-header">
+                        <h5 class="modal-title"> Remove User</h5>
+                        <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="exampleModalCenter.hide()"><span aria-hidden="true">&times;</span></button>
+                      </div>
+                      <div class="app-modal-body">
+                        <p>Are you sure you want to delete this user?</p>
+                      </div>
+                      <div class="app-modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="exampleModalCenter.hide()">Close</button>
+                        <button (click)="remove(user.id)" type="button" class="btn btn-primary">Save changes</button>
+                      </div>
+                    </app-ui-modal>
+                </div>
+            </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+    </app-card>
+  </div>
+  
+

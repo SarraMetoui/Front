@@ -29,9 +29,13 @@ export class AuthentificationComponent implements OnInit {
   onSubmit(): void { const payload = {
     email: this.user.email,
     password: this.user.password
+    
   };
   this.store.dispatch(new LogIn(payload));
-  console.log(this.user);
+  localStorage.setItem('role', this.user.role);
+
+  console.log(this.user);  
+ 
   }
 
 }

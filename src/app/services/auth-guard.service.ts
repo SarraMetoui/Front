@@ -14,10 +14,15 @@ export class AuthGuardService implements CanActivate {
     public router: Router
   ) {}
   canActivate(): boolean {
-    if (!this.auth.getToken()) {
-      this.router.navigateByUrl('/log-in');
+    
+    
+      let Role = localStorage.getItem("role");
+      if ( Role == "admin")
+      { return true;
+      }
+      alert(" you dont have admin rights!")
       return false;
-    }
-    return true;
+     
+   
   }
 }

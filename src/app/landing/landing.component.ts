@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
-
 import { AppState, selectAuthState } from '../store/app.states';
 import { LogOut } from '../store/actions/auth.actions';
 @Component({
@@ -27,6 +26,7 @@ export class LandingComponent implements OnInit {
   }
   logOut(): void {
     this.store.dispatch(new LogOut);
+    
   }
 
 }

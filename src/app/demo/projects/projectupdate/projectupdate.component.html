@@ -1,0 +1,65 @@
+<div class="row">
+    
+    <div class="col-sm-12">
+        
+      <app-card cardTitle="Update your project's information" >
+        <!-- <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong> Success! </strong> The project was updated succefully ! 
+            <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="close">
+                 <span aria-hidden="true">&times;</span>
+                 </button>
+           </div> -->
+         <div class="row">
+           <div class="col-md-6">
+              <form [formGroup]="form" (ngSubmit)="Update()">
+            
+                  <div class="form-group">
+                       <h6 for="name" >NAME</h6>
+                       <input  id="name" type="text" class="form-control" formControlName="name" placeholder="Project name" required>
+                  </div>
+                  <div class="form-group">
+                      <h6 for="description" >DESCRIPTION</h6>
+                      <input  id="description" type="text" class="form-control" formControlName="description" placeholder="Project's Description" required>
+                  </div>
+                  <div class="form-group">
+                      <h6 for="client" >CLIENT</h6>
+                      <input  id="client" type="text" class="form-control" formControlName="client" placeholder="Project's Client" required>
+                  </div>
+                  <div class="form-group">
+                      <h6 for="manager" >MANAGER</h6>
+                      <input  id="manager" type="text" class="form-control" formControlName="manager" placeholder="Project's manager" required>
+                  </div>
+        
+                  <div class="form-group">
+                     <h6 for="status" >STATUS</h6>
+                     <input  id="status" type="text" class="form-control" formControlName="status" placeholder="Project's phase" required>
+                  </div>
+                  <div class="form-group">
+                     <h6 for="phase" >PHASE</h6>
+                     <input  id="phase" type="text" class="form-control" formControlName="phase" placeholder="Project's phase" required>
+                  </div>
+                 <div class="form-group">
+                    <h6 for="department" >DEPARTMENT</h6>
+                    <input  id="department" type="text" class="form-control" formControlName="department" placeholder="Project Department" required>
+                 </div>
+                 <div class="form-group">
+                  <h6 for="progress" >PROGRESS</h6>
+                  <input  id="progress" type="text" class="form-control" formControlName="progress" placeholder="Project Progress" required>
+               </div>
+               <div class="form-group">
+                <h6 for="Priority" >PRIORITY</h6>
+                <input  id="priority" type="text" class="form-control" formControlName="priority" placeholder="Project Priority" required>
+             </div>
+             <div class="form-group">
+              <h6 for="version" >VERSION</h6>
+              <input  id="version" type="text" class="form-control" formControlName="version" placeholder="Project Version" required>
+           </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+             </form>
+           </div>
+          </div>
+      </app-card>
+    </div>
+</div>
+
+    

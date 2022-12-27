@@ -6,6 +6,7 @@ import { BehaviorSubject } from "rxjs";
 import { first, tap } from "rxjs/operators";
 
 import { User } from '../models/user';
+import { Role } from '../models/role';
 
 @Injectable({
   providedIn: 'root'
@@ -31,10 +32,10 @@ export class AuthService {
     ;
     
   }
-
-  signUp(email: string, password: string , name: string): Observable<User> {
+  
+  signUp(email: string, password: string , name: string, role: string, number: string, address: string, country: string, city: string, lastname: string): Observable<User> {
     const url = `${this.BASE_URL}/signup`;
-    return this.http.post<User>(url, {email, password , name}, this.httpOptions)
+    return this.http.post<User>(url, {email, password , name, role, number, address, country, city, lastname}, this.httpOptions)
   ;
 
 

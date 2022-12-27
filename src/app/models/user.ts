@@ -1,3 +1,6 @@
+
+import { Role } from "./role";
+
 export class User {
     id? : number;
     // phoneNumberUser : string ;
@@ -6,6 +9,8 @@ export class User {
     name?: string;
     email?: string;
     password?: string;
+    role?: string;
+    
     // addressUser: string; 
     // roleUser : string; 
     // dateBirthUser : string;
@@ -15,4 +20,9 @@ export class User {
     // bonus: string; 
     // availaible: boolean;
     token?: string;
+    number?: string; 
+    address?: string; 
+    country?: string; 
+    city?: string; 
+    lastname?: string; 
 }

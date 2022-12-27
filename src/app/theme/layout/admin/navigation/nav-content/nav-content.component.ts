@@ -2,6 +2,10 @@ import { AfterViewInit, Component, ElementRef, EventEmitter, NgZone, OnInit, Out
 import { NavigationItem } from '../navigation';
 import { NextConfig } from '../../../../../app-config';
 import { Location } from '@angular/common';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
+import { AppState, selectAuthState } from '../../../../../store/app.states';
+import { LogOut } from '../../../../../store/actions/auth.actions';
 
 @Component({
   selector: 'app-nav-content',
@@ -9,6 +13,11 @@ import { Location } from '@angular/common';
   styleUrls: ['./nav-content.component.scss']
 })
 export class NavContentComponent implements OnInit, AfterViewInit {
+  getState: Observable<any>;
+  isAuthenticated: false;
+  user = null;
+  errorMessage = null;
+////////////////
   public nextConfig: any;
   public navigation: any;
   public prevDisabled: string;
@@ -24,7 +33,9 @@ export class NavContentComponent implements OnInit, AfterViewInit {
   @ViewChild('navbarContent', {static: false}) navbarContent: ElementRef;
   @ViewChild('navbarWrapper', {static: false}) navbarWrapper: ElementRef;
 
-  constructor(public nav: NavigationItem, private zone: NgZone, private location: Location) {
+  constructor(private store: Store<AppState>, public nav: NavigationItem, private zone: NgZone, private location: Location) {
+    this.getState = this.store.select(selectAuthState);
+///////////
     this.nextConfig = NextConfig.config;
     this.windowWidth = window.innerWidth;
 
@@ -38,6 +49,12 @@ export class NavContentComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+    this.getState.subscribe((state) => {
+      this.isAuthenticated = state.isAuthenticated;
+      this.user = state.user;
+      this.errorMessage = state.errorMessage;
+    });
+
     if (this.windowWidth < 992) {
       this.nextConfig['layout'] = 'vertical';
       setTimeout(() => {
@@ -46,7 +63,10 @@ export class NavContentComponent implements OnInit, AfterViewInit {
       }, 500);
     }
   }
-
+  logOut(): void {
+    this.store.dispatch(new LogOut);
+    
+  }
   ngAfterViewInit() {
     if (this.nextConfig['layout'] === 'horizontal') {
       this.contentWidth = this.navbarContent.nativeElement.clientWidth;

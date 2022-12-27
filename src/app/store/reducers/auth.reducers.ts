@@ -26,7 +26,8 @@ export const initialState: State = {
           isAuthenticated: true,
           user: {
             token: action.payload.token,
-            email: action.payload.email
+            email: action.payload.email,
+            role: action.payload.role
           }});
 
 
@@ -35,7 +36,8 @@ export const initialState: State = {
           isAuthenticated: true,
           user: {
             token: action.payload.token,
-            email: action.payload.email
+            email: action.payload.email,
+            role: action.payload.role
           },
           errorMessage: null
         };
@@ -55,7 +57,8 @@ export const initialState: State = {
           isAuthenticated: true,
           user: {
             token: action.payload.token,
-            email: action.payload.email
+            email: action.payload.email,
+            role: action.payload.role
           },
           errorMessage: null
         };
