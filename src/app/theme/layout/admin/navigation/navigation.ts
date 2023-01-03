@@ -62,7 +62,7 @@ const NavigationItems = [
           },
           {
             id: 'button',
-            title: 'Projects List',
+            title: 'Client List',
             type: 'item',
             url: 'account'
           }
@@ -81,7 +81,7 @@ const NavigationItems = [
         title: 'Projects List',
         type: 'item',
         url: '/projects',
-        icon: 'feather icon-home',
+        icon: 'feather icon-file-text',
         classes: 'nav-item'
       }
     ]
@@ -97,7 +97,56 @@ const NavigationItems = [
         title: 'Tasks',
         type: 'item',
         url: '/tasks',
-        icon: 'feather icon-home',
+        icon: 'feather icon-server',
+        classes: 'nav-item'
+      }
+    ]
+  },
+  {
+    id: 'concepts',
+    title: 'Concepts',
+    type: 'group',
+    icon: 'feather icon-monitor',
+    children: [
+      {
+        id: 'topics',
+        title: 'Topics',
+        type: 'item',
+        url: '/topics',
+        icon: 'feather icon-sidebar',
+        classes: 'nav-item'
+      },
+      {
+        id: 'risks',
+        title: 'Risks',
+        type: 'item',
+        url: '/projects',
+        icon: 'feather icon-sidebar',
+        classes: 'nav-item'
+      },
+      {
+        id: 'documents',
+        title: 'Documents',
+        type: 'item',
+        url: '/projects',
+        icon: 'feather icon-sidebar',
+        classes: 'nav-item'
+      }
+
+    ]
+  },
+  {
+    id: 'meetings',
+    title: 'Meetings',
+    type: 'group',
+    icon: 'feather icon-calender',
+    children: [
+      {
+        id: 'meetings',
+        title: 'Meetings',
+        type: 'item',
+        url: '/meetings',
+        icon: 'feather icon-camera',
         classes: 'nav-item'
       }
     ]

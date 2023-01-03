@@ -82,6 +82,10 @@ const routes: Routes = [
       {
         path: 'tasks',
         loadChildren: () => import('./demo/taskss/taskss.module').then(module => module.TaskssModule)
+      },
+      {
+        path: 'topics',
+        loadChildren: () => import('./demo/topics/topics.module').then(module => module.TopicsModule)
       }
     ]
   }

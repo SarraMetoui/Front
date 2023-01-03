@@ -12,12 +12,18 @@ import { Project } from 'src/app/models/projects';
 export class ProjectComponent implements OnInit {
 
   constructor(private service: ProjectsService) { }
+  id_count: any; 
+  nbProjects: any;
+  // active: any; 
+  // nbActive: any;
+  // completed: any; 
+  // nbCompleted: any;
   public projects: Project[];
   public editPromotion: Project;
   public deletePromotion: Project;
   ngOnInit(): void {
     this.getProjects();
-  
+    this.getNbProjects();
 
   }
 
@@ -48,10 +54,10 @@ export class ProjectComponent implements OnInit {
   public search(key: string): void {
     console.log(key);
     const results: Project[] = [];
-    for (const promotion of this.projects) {
+    for (const p of this.projects) {
       if (
-       promotion.name.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
-        results.push(promotion);
+       p.name.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
+        results.push(p);
       }
     }
     this.projects = results;
@@ -59,4 +65,43 @@ export class ProjectComponent implements OnInit {
       this.getProjects();
     }
   }
+
+  public getNbProjects(): void {
+    this.service.getNbProjects().subscribe(
+      (response: any) => {
+        
+        this.nbProjects= response[0][0];
+        console.log(response[0][0]);
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
+  
+  // public getActive(): void {
+  //   this.service.getActive().subscribe(
+  //     (response: any) => {
+        
+  //       this.nbActive= response[0][0];
+  //       console.log(response[0][0]);
+  //     },
+  //     (error: HttpErrorResponse) => {
+  //       alert(error.message);
+  //     }
+  //   );
+  // }
+
+  // public getCompleted(): void {
+  //   this.service.getCompleted().subscribe(
+  //     (response: any) => {
+        
+  //       this.nbCompleted= response[0][0];
+  //       console.log(response[0][0]);
+  //     },
+  //     (error: HttpErrorResponse) => {
+  //       alert(error.message);
+  //     }
+  //   );
+  // }
 }

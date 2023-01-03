@@ -1,0 +1,297 @@
+// // .card {
+// //     perspective: 150rem;
+// //     position: relative;
+// //     height: 20rem;
+// //     max-width: 200px;
+// //     margin: 2rem;
+// //     box-shadow: none;
+// //     background: none;
+// //   }
+  
+//   .cards-side {
+//     // height: 20rem;
+//     // border-radius: 15px;
+//     transition: all 0.8s ease;
+//     backface-visibility: hidden;
+//     // position: absolute;
+//     // top: 0;
+//     // left: 0;
+//     // width: 80%;
+//     // padding: 2rem;
+//     // color: rgb(5, 15, 41);
+//   }
+
+// //   .card-side.back {
+// //     transform: rotateY(-180deg);
+// //     background-color: #e8e9ec;
+// //     background-image: linear-gradient(43deg, #d9dbe4 0%,#dfe3ec 46%, #c9d1ec 100%);                                                                                        
+// //   }
+
+// //   .card-side.front {
+// //     background-color: #d3d9ea;
+// //     background-image: linear-gradient(160deg, #e5e8f1 0%, #abc7f5 100%);
+// //   }
+  
+//   .cards:hover .card-side.front {
+//     transform: rotateY(180deg);
+//   }
+  
+//   .cards:hover .card-side.back {
+//     transform: rotateY(0deg);
+//   }
+
+
+
+
+
+
+// <!-- HTML !-->
+// <button class="button-31" role="button">Button 31</button>
+
+/* CSS */
+.button-31 {
+  background-color: rgb(34, 34, 35);
+  border-radius: 4px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Farfetch Basis","Helvetica Neue",Arial,sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0;
+  max-width: none;
+  min-height: 44px;
+  min-width: 10px;
+  outline: none;
+  overflow: hidden;
+  padding: 9px 20px 8px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+}
+
+.button-31:hover,
+.button-31:focus {
+  opacity: .75;
+}
+
+.nav-pills {
+  margin-bottom: 1rem;
+}
+
+body{
+  margin-top:20px;
+  background:#FDFDFF
+}
+.badge {
+  border-radius: 8px;
+  padding: 4px 8px;
+  text-transform: uppercase;
+  font-size: .7142em;
+  line-height: 12px;
+  background-color: transparent;
+  border: 1px solid;
+  margin-bottom: 5px;
+  border-radius: .875rem;
+}
+.bg-green {
+  background-color: #50d38a !important;
+  color: #fff;
+}
+.bg-blush {
+  background-color: #ff758e !important;
+  color: #fff;
+}
+.bg-amber {
+  background-color: #FFC107 !important;
+  color: #fff;
+}
+.bg-red {
+  background-color: #ec3b57 !important;
+  color: #fff;
+}
+.bg-blue {
+  background-color: #60bafd !important;
+  color: #fff;
+}
+.card {
+  background: #fff;
+  margin-bottom: 30px;
+  transition: .5s;
+  border: 0;
+  border-radius: .1875rem;
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  box-shadow: none;
+}
+.inbox .action_bar .delete_all {
+  margin-bottom: 0;
+  margin-top: 8px
+}
+
+.inbox .action_bar .btn,
+.inbox .action_bar .search {
+  margin: 0
+}
+
+.inbox .mail_list .list-group-item {
+  border: 0;
+  padding: 15px;
+  margin-bottom: 1px
+}
+
+.inbox .mail_list .list-group-item:hover {
+  background: #eceeef
+}
+
+.inbox .mail_list .list-group-item .media {
+  margin: 0;
+  width: 100%
+}
+
+.inbox .mail_list .list-group-item .controls {
+  display: inline-block;
+  margin-right: 10px;
+  vertical-align: top;
+  text-align: center;
+  margin-top: 11px
+}
+
+.inbox .mail_list .list-group-item .controls .checkbox {
+  display: inline-block
+}
+
+.inbox .mail_list .list-group-item .controls .checkbox label {
+  margin: 0;
+  padding: 10px
+}
+
+.inbox .mail_list .list-group-item .controls .favourite {
+  margin-left: 10px
+}
+
+.inbox .mail_list .list-group-item .thumb {
+  display: inline-block
+}
+
+.inbox .mail_list .list-group-item .thumb img {
+  width: 40px
+}
+
+.inbox .mail_list .list-group-item .media-heading a {
+  color: #555;
+  font-weight: normal
+}
+
+.inbox .mail_list .list-group-item .media-heading a:hover,
+.inbox .mail_list .list-group-item .media-heading a:focus {
+  text-decoration: none
+}
+
+.inbox .mail_list .list-group-item .media-heading time {
+  font-size: 13px;
+  margin-right: 10px
+}
+
+.inbox .mail_list .list-group-item .media-heading .badge {
+  margin-bottom: 0;
+  border-radius: 50px;
+  font-weight: normal
+}
+
+.inbox .mail_list .list-group-item .msg {
+  margin-bottom: 0px
+}
+
+.inbox .mail_list .unread {
+  border-left: 2px solid
+}
+
+.inbox .mail_list .unread .media-heading a {
+  color: #333;
+  font-weight: 700
+}
+
+.inbox .btn-group {
+  box-shadow: none
+}
+
+.inbox .bg-gray {
+  background: #e6e6e6
+}
+
+@media only screen and (max-width: 767px) {
+  .inbox .mail_list .list-group-item .controls {
+      margin-top: 3px
+  }
+}
+
+body {
+  margin: 0;
+  padding-top: 40px;
+  color: #2e323c;
+  background: #f5f6fa;
+  position: relative;
+  height: 100%;
+}
+.account-settings .user-profile {
+  margin: 0 0 1rem 0;
+  padding-bottom: 1rem;
+  text-align: center;
+}
+.account-settings .user-profile .user-avatar {
+  margin: 0 0 1rem 0;
+}
+.account-settings .user-profile .user-avatar img {
+  width: 90px;
+  height: 90px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
+}
+.account-settings .user-profile h5.user-name {
+  margin: 0 0 0.5rem 0;
+}
+.account-settings .user-profile h6.user-email {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #9fa8b9;
+}
+.account-settings .about {
+  margin: 2rem 0 0 0;
+  text-align: center;
+}
+.account-settings .about h5 {
+  margin: 0 0 15px 0;
+  color: #007ae1;
+}
+.account-settings .about p {
+  font-size: 0.825rem;
+}
+.form-control {
+  border: 1px solid #cfd1d8;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  font-size: .825rem;
+  background: #ffffff;
+  color: #2e323c;
+}
+
+.card {
+  background: #ffffff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 0;
+  margin-bottom: 1rem;
+}
