@@ -1,0 +1,325 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+<div class="col-sm-12">
+    <app-card cardTitle="Clients">
+        <app-alert *ngIf="alert" type="success" dismiss="true">Client has been deleted succefully!</app-alert>
+
+        <div class="card">
+            
+<div class="container">
+<div class="row bootstrap snippets bootdeys"> 
+    <div class="col-md-9 col-sm-7"> 
+        <hr>
+      <div>
+        <a (click)="myLargeModalLabel.show()"><i class="fa fa-fw fa-plus mr-2"></i>Add New Client</a>
+        </div>
+    </div> 
+    <div class="col-md-3 col-sm-5"> 
+        <form method="get" role="form" class="search-form-full"> 
+            <div class="form-group"> 
+                <input (ngModelChange)="search(key.value)"  type="search" #key="ngModel" ngModel
+                name="key" id="searchName" type="text" class="form-control" placeholder="Search..." aria-describedby="project-search-addon"  required >                <i class="entypo-search"></i> 
+            </div> 
+        </form> 
+    </div> 
+</div>
+<!-- <div class="member-entry"> 
+    <a href="#" class="member-img"> 
+        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="img-rounded"> 
+        <i class="fa fa-forward"></i> 
+    </a> 
+    <div class="member-details"> 
+        <h4> <a href="#">Johnnie Linton</a> </h4> 
+        <div class="row info-list"> 
+            <div class="col-sm-4"> 
+                <i class="fa fa-briefcase"></i>
+                Co-Founder at <a href="#">Complete Tech</a> 
+            </div> 
+            <div class="col-sm-4"> 
+                <i class="fa fa-twitter"></i> 
+                <a href="#">@johnnie</a> 
+            </div> 
+            <div class="col-sm-4"> 
+                <i class="fa fa-facebook"></i> 
+                <a href="#">fb.me/johnnie</a> 
+            </div> 
+            <div class="clear"></div> 
+            <div class="col-sm-4"> 
+                <i class="fa fa-location"></i> 
+                <a href="#">Prishtina</a> 
+            </div> 
+            <div class="col-sm-4"> 
+                <i class="fa fa-envelope"></i> 
+                <a href="#">john@gmail.com</a> 
+            </div> 
+            <div class="col-sm-4"> 
+                <i class="fa fa-linkedin"></i> 
+                <a href="#">johnkennedy</a> 
+            </div> 
+        </div> 
+    </div> 
+</div> -->
+<div class="member-entry" *ngFor="let client of clients"> 
+    <a href="#" class="member-img"> 
+        <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="img-rounded"> 
+        <i class="fa fa-forward"></i> 
+    </a> 
+    
+    <div class="member-details" > 
+        <h4> <a href="#">{{client.name}}</a> </h4> 
+        <div class="row info-list"> 
+            <div class="col-sm-4"> 
+                <i class="fa fa-briefcase"></i> 
+                Manager Name: <a href="#"></a> 
+            </div> 
+            <div class="col-sm-4"> 
+                <i class="fa fa-phone"></i> 
+                <a href="#"> {{client.number}}</a> 
+            </div> 
+            <div class="col-sm-4"> 
+                <i class="fa fa-home"></i> 
+                <a href="#">  {{client.address}}</a> 
+            </div> 
+            <div class="clear"></div> 
+            <div class="col-sm-4"> 
+                <i class="fa fa-location"></i> 
+                <a href="#">{{client.manager}}</a> 
+            </div> 
+            <div class="col-sm-4"> 
+                <i class="fa fa-envelope"></i> 
+                <a href="#">  {{client.email}}</a> 
+            </div> 
+            <footer class="card-footer flexbox align-items-left">
+               
+                <div class="card-hover-show" >
+                    <a (click)="exampleModalPopoversLabel.show()" class="btn btn-xs fs-10 btn-bold btn-primary" >Edit</a>
+                    <a (click)="remove(client.id)" class="btn btn-xs fs-10 btn-bold btn-danger">Delete</a>
+                </div>
+            </footer>
+        </div> 
+    </div> 
+</div>
+<!-- <div class="member-entry"> 
+    <a href="#" class="member-img"> 
+        <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="img-rounded"> 
+        <i class="fa fa-forward"></i> 
+    </a> 
+    <div class="member-details"> 
+        <h4> <a href="#">Johnnie Linton</a> </h4> 
+        <div class="row info-list"> 
+            <div class="col-sm-4"> 
+                <i class="fa fa-briefcase"></i>
+                Co-Founder at <a href="#">Complete Tech</a> 
+            </div> 
+            <div class="col-sm-4"> 
+                <i class="fa fa-twitter"></i> 
+                <a href="#">@johnnie</a> 
+            </div> 
+            <div class="col-sm-4"> 
+                <i class="fa fa-facebook"></i> 
+                <a href="#">fb.me/johnnie</a> 
+            </div> 
+            <div class="clear"></div> 
+            <div class="col-sm-4"> 
+                <i class="fa fa-location"></i> 
+                <a href="#">Prishtina</a> 
+            </div> 
+            <div class="col-sm-4"> 
+                <i class="fa fa-envelope"></i> 
+                <a href="#">john@gmail.com</a> 
+            </div> 
+            <div class="col-sm-4"> 
+                <i class="fa fa-linkedin"></i> 
+                <a href="#">johnkennedy</a> 
+            </div> 
+        </div> 
+    </div> 
+</div>
+<div class="member-entry"> 
+    <a href="#" class="member-img"> 
+        <img src="https://bootdey.com/img/Content/avatar/avatar4.png" class="img-rounded"> 
+        <i class="fa fa-forward"></i> 
+    </a> 
+    <div class="member-details"> 
+        <h4> <a href="#">Johnnie Linton</a> </h4> 
+        <div class="row info-list"> 
+            <div class="col-sm-4"> 
+                <i class="fa fa-briefcase"></i>
+                Co-Founder at <a href="#">Complete Tech</a> 
+            </div> 
+            <div class="col-sm-4"> 
+                <i class="fa fa-twitter"></i> 
+                <a href="#">@johnnie</a> 
+            </div> 
+            <div class="col-sm-4"> 
+                <i class="fa fa-facebook"></i> 
+                <a href="#">fb.me/johnnie</a> 
+            </div> 
+            <div class="clear"></div> 
+            <div class="col-sm-4"> 
+                <i class="fa fa-location"></i> 
+                <a href="#">Prishtina</a> 
+            </div> 
+            <div class="col-sm-4"> 
+                <i class="fa fa-envelope"></i> 
+                <a href="#">john@gmail.com</a> 
+            </div> 
+            <div class="col-sm-4"> 
+                <i class="fa fa-linkedin"></i> 
+                <a href="#">johnkennedy</a> 
+            </div> 
+        </div> 
+    </div> 
+</div>
+<div class="member-entry"> 
+    <a href="#" class="member-img"> 
+        <img src="https://bootdey.com/img/Content/avatar/avatar5.png" class="img-rounded"> 
+        <i class="fa fa-forward"></i> 
+    </a> 
+    <div class="member-details"> 
+        <h4> <a href="#">Johnnie Linton</a> </h4> 
+        <div class="row info-list"> 
+            <div class="col-sm-4"> 
+                <i class="fa fa-briefcase"></i>
+                Co-Founder at <a href="#">Complete Tech</a> 
+            </div> 
+            <div class="col-sm-4"> 
+                <i class="fa fa-twitter"></i> 
+                <a href="#">@johnnie</a> 
+            </div> 
+            <div class="col-sm-4"> 
+                <i class="fa fa-facebook"></i> 
+                <a href="#">fb.me/johnnie</a> 
+            </div> 
+            <div class="clear"></div> 
+            <div class="col-sm-4"> 
+                <i class="fa fa-location"></i> 
+                <a href="#">Prishtina</a> 
+            </div> 
+            <div class="col-sm-4"> 
+                <i class="fa fa-envelope"></i> 
+                <a href="#">john@gmail.com</a> 
+            </div> 
+            <div class="col-sm-4"> 
+                <i class="fa fa-linkedin"></i> 
+                <a href="#">johnkennedy</a> 
+            </div> 
+        </div> 
+    </div> 
+</div> -->
+</div>
+            </div></app-card></div>
+
+            <!-- <div class="modal fade" id="addEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <h5 class="modal-title" id="addEmployeeModalLabel">Add Promotions</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                     </div>
+                     <div class="modal-body">
+                        <form #addForm="ngForm" (ngSubmit)="onAddPromotion(addForm)">
+                        <div class="form-group">
+                           <label for="name">Type</label>
+                           <input type="text" ngModel name="type_promotion" class="form-control" id="type_promotion" placeholder="Type" required>
+                        </div>
+                        <div class="form-group">
+                           <label for="email">Date </label>
+                           <input type="date" ngModel name="date_promotion_fin" class="form-control" id="date_promotion_fin" placeholder="Date" required>
+                        </div>
+                        <div class="form-group">
+                           <label for="phone">Reduction</label>
+                           <input type="text" ngModel name="valeur_promotion" class="form-control" id="valeur_promotion" placeholder="Sale %" required>
+                        </div>
+                        
+                       
+                        <div class="modal-footer">
+                           <button type="button" id="add-employee-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                           <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Save changes</button>
+                        </div>
+                        </form>
+                     </div>
+                  </div>
+                </div>
+                </div> -->
+<!--ADD MODAL-->
+                <app-ui-modal #myLargeModalLabel id="addEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
+                    <div class="app-modal-header">
+                      <h5 class="modal-title">Add a new client</h5>
+                      <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="myLargeModalLabel.hide()"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="app-modal-body">
+                      
+                        <form #addForm="ngForm" (ngSubmit)="onAddPromotion(addForm)">
+                            <div class="form-group">
+                               <label for="name">Name</label>
+                               <input type="text" ngModel name="name" class="form-control" id="name" placeholder="Company Name" required>
+                            </div>
+                            <div class="form-group">
+                               <label for="email">Manager in charge </label>
+                               <input type="text" ngModel name="manager" class="form-control" id="manager" placeholder="Foulen Foulen" required>
+                            </div>
+                            <div class="form-group">
+                               <label for="phone">Email</label>
+                               <input type="text" ngModel name="email" class="form-control" id="email" placeholder="company@gmail.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Number</label>
+                                <input type="text" ngModel name="number" class="form-control" id="number" placeholder=" +216.." required>
+                             </div>
+                             <div class="form-group">
+                                <label for="phone">Address</label>
+                                <input type="text" ngModel name="address" class="form-control" id="addr" placeholder="Ariana, Tunisia " required>
+                             </div>
+                        
+                           
+                            <div class="app-modal-footer">
+                               <button type="button" id="add-employee-form" class="btn btn-secondary" (click)="myLargeModalLabel.hide()" data-dismiss="modal">Close</button>
+                               <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Save changes</button>
+                            </div>
+                            </form>
+                    </div>
+                   
+                  </app-ui-modal>
+
+<!--EDIT MODAL-->
+                  <app-ui-modal #exampleModalPopoversLabel id="updateEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="employeeEditModalLabel" aria-hidden="true">
+                    <div class="app-modal-header">
+                      <h5 class="modal-title">Edit client</h5>
+                      <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="exampleModalPopoversLabel.hide()"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="app-modal-body">
+                      
+                        <form #editForm="ngForm" (ngSubmit)="onUpdateEmloyee(editForm.value)">
+                            <div class="form-group">
+                               <label for="name">Name</label>
+                               <input type="text" ngModel name="name" class="form-control" id="name" placeholder="Company Name" required>
+                            </div>
+                            <div class="form-group">
+                               <label for="email">Manager in charge </label>
+                               <input type="text" ngModel name="manager" class="form-control" id="manager" placeholder="Foulen Foulen" required>
+                            </div>
+                            <div class="form-group">
+                               <label for="phone">Email</label>
+                               <input type="text" ngModel name="email" class="form-control" id="email" placeholder="company@gmail.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Number</label>
+                                <input type="text" ngModel name="number" class="form-control" id="number" placeholder=" +216.." required>
+                             </div>
+                             <div class="form-group">
+                                <label for="phone">Address</label>
+                                <input type="text" ngModel name="address" class="form-control" id="addr" placeholder="Ariana, Tunisia " required>
+                             </div>
+                        
+                           
+                            <div class="app-modal-footer">
+                               <button type="button" id="add-employee-form" class="btn btn-secondary" (click)="exampleModalPopoversLabel.hide()" data-dismiss="modal">Close</button>
+                               <button  type="submit"  class="btn btn-primary" >Save changes</button>
+                            </div>
+                            </form>
+                    </div>
+                   
+                  </app-ui-modal>

@@ -86,7 +86,20 @@ const routes: Routes = [
       {
         path: 'topics',
         loadChildren: () => import('./demo/topics/topics.module').then(module => module.TopicsModule)
+      },
+      {
+        path: 'clients',
+        loadChildren: () => import('./demo/client/client.module').then(module => module.ClientModule)
+      },
+      {
+        path: 'documents',
+        loadChildren: () => import('./demo/documents/documents.module').then(module => module.DocumentsModule)
+      },
+      {
+        path: 'risks',
+        loadChildren: () => import('./demo/risks/risks.module').then(module => module.RisksModule)
       }
+
     ]
   }
  

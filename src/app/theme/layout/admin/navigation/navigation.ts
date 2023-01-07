@@ -44,13 +44,13 @@ const NavigationItems = [
   },
   {
     id: 'ui-element',
-    title: 'Users',
+    title: 'Ressources',
     type: 'group',
     icon: 'feather icon-layers',
     children: [
       {
         id: 'basic',
-        title: 'Users',
+        title: 'Ressources',
         type: 'collapse',
         icon: 'feather icon-box',
         children: [
@@ -62,9 +62,9 @@ const NavigationItems = [
           },
           {
             id: 'button',
-            title: 'Client List',
+            title: 'Clients List',
             type: 'item',
-            url: 'account'
+            url: '/clients'
           }
         ]
       }
@@ -120,7 +120,7 @@ const NavigationItems = [
         id: 'risks',
         title: 'Risks',
         type: 'item',
-        url: '/projects',
+        url: '/risks',
         icon: 'feather icon-sidebar',
         classes: 'nav-item'
       },
@@ -128,7 +128,7 @@ const NavigationItems = [
         id: 'documents',
         title: 'Documents',
         type: 'item',
-        url: '/projects',
+        url: '/documents',
         icon: 'feather icon-sidebar',
         classes: 'nav-item'
       }

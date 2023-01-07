@@ -38,7 +38,7 @@ export class TopicService {
     return this.http.get(`${this.URL4}/${id}`);
   }
 
-  addTask(topic: Topic): Observable<any>
+  addTopic(topic: Topic): Observable<any>
   {
      return this.http.post<Topic>(`${this.URL5}`,topic )
   }
