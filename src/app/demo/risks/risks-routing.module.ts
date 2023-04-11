@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { DetailriskComponent } from './detailrisk/detailrisk.component';
 import { RisksComponent } from './risks/risks.component';
 
 
@@ -9,6 +10,11 @@ const routes: Routes = [
     component: RisksComponent,
   
   },
+  {
+    path: 'details/:id',
+    component: DetailriskComponent,
+  
+  }
 ];
 
 @NgModule({

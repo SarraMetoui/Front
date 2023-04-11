@@ -10,8 +10,7 @@ import { UploadService } from 'src/app/services/upload.service';
 })
 export class UploadComponent implements OnInit {
   selectedFiles: FileList;
-  currentFile: File;
-  progress = 0;
+  progressInfos = [];
   message = '';
 
   fileInfos: Observable<any>;
@@ -19,30 +18,34 @@ export class UploadComponent implements OnInit {
 
   ngOnInit(): void {
     this.fileInfos = this.uploadService.getFiles();
-  }
-  selectFile(event) {
-    this.selectedFiles = event.target.files;
-  }
-  upload() {
-    this.progress = 0;
+    }
+    
+    selectFiles(event): void {
+      this.progressInfos = [];
+      this.selectedFiles = event.target.files;
+    }
+  uploadFiles(): void {
+    this.message = '';
   
-    this.currentFile = this.selectedFiles.item(0);
-    this.uploadService.upload(this.currentFile).subscribe(
+    for (let i = 0; i < this.selectedFiles.length; i++) {
+      this.upload(i, this.selectedFiles[i]);
+    }
+  }
+  upload(idx, file): void {
+    this.progressInfos[idx] = { value: 0, fileName: file.name };
+  
+    this.uploadService.upload(file).subscribe(
       event => {
         if (event.type === HttpEventType.UploadProgress) {
-          this.progress = Math.round(100 * event.loaded / event.total);
+          this.progressInfos[idx].value = Math.round(100 * event.loaded / event.total);
         } else if (event instanceof HttpResponse) {
-          this.message = event.body.message;
           this.fileInfos = this.uploadService.getFiles();
         }
       },
       err => {
-        this.progress = 0;
-        this.message = 'Could not upload the file!';
-        this.currentFile = undefined;
+        this.progressInfos[idx].value = 0;
+        this.message = 'Could not upload the file:' + file.name;
       });
-  
-    this.selectedFiles = undefined;
   }
 
 }

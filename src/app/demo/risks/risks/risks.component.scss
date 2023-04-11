@@ -1,120 +1,95 @@
-body {
-    margin-top: 20px;
+body{margin-top:20px;}
+.shadow-sm,
+.shadow-sm--on-hover:hover {
+    box-shadow: 0 0.125rem 0.25rem rgba(132, 138, 163, 0.1) !important
 }
-.timeline_area {
-    position: relative;
-    z-index: 1;
+.gradient-light--lean-left {
+    background-image: -webkit-linear-gradient(110deg, #f2f3fa 0%, #fcfdff 100%);
+    background-image: -ms-linear-gradient(110deg, #f2f3fa 0%, #fcfdff 100%)
 }
-.single-timeline-area {
-    position: relative;
-    z-index: 1;
-    padding-left: 180px;
+
+.color--heading {
+    color: #101f41 !important
 }
-@media only screen and (max-width: 575px) {
-    .single-timeline-area {
-        padding-left: 100px;
-    }
+
+.color--text {
+    color: #4f5464 !important
 }
-.single-timeline-area .timeline-date {
-    position: absolute;
-    width: 180px;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -ms-grid-row-align: center;
-    align-items: center;
-    -webkit-box-pack: end;
-    -ms-flex-pack: end;
-    justify-content: flex-end;
-    padding-right: 60px;
-}
-@media only screen and (max-width: 575px) {
-    .single-timeline-area .timeline-date {
-        width: 100px;
-    }
-}
-.single-timeline-area .timeline-date::after {
-    position: absolute;
-    width: 3px;
-    height: 100%;
-    content: "";
-    background-color: #ebebeb;
-    top: 0;
-    right: 30px;
-    z-index: 1;
-}
-.single-timeline-area .timeline-date::before {
-    position: absolute;
-    width: 11px;
-    height: 11px;
+
+
+.badge-circle {
     border-radius: 50%;
-    background-color: #f1c40f;
-    content: "";
-    top: 50%;
-    right: 26px;
-    z-index: 5;
-    margin-top: -5.5px;
+    height: 2.5rem;
+    width: 2.5rem;
+    font-size: 1rem;
+    line-height: 2.5rem;
+    padding: 0
 }
-.single-timeline-area .timeline-date p {
-    margin-bottom: 0;
-    color: #020710;
-    font-size: 13px;
-    text-transform: uppercase;
-    font-weight: 500;
+
+.text-white {
+    color: #fff!important;
 }
-.single-timeline-area .single-timeline-content {
-    position: relative;
-    z-index: 1;
-    padding: 30px 30px 25px;
-    border-radius: 6px;
-    margin-bottom: 15px;
-    margin-top: 15px;
-    -webkit-box-shadow: 0 0.25rem 1rem 0 rgba(47, 91, 234, 0.125);
-    box-shadow: 0 0.25rem 1rem 0 rgba(47, 91, 234, 0.125);
-    border: 1px solid #ebebeb;
+
+
+.background--white,
+.bg-white {
+    background-color: #fff !important
 }
-@media only screen and (max-width: 575px) {
-    .single-timeline-area .single-timeline-content {
-        padding: 20px;
-    }
+
+.background--brand,
+.background--primary,
+.bg-brand,
+.bg-primary {
+    background-color: #4d5bed !important;
+    color: #fff
 }
-.single-timeline-area .single-timeline-content .timeline-icon {
-    -webkit-transition-duration: 500ms;
-    transition-duration: 500ms;
-    width: 30px;
-    height: 30px;
-    background-color: #f1c40f;
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 30px;
-    flex: 0 0 30px;
-    text-align: center;
-    max-width: 30px;
-    border-radius: 50%;
-    margin-right: 15px;
+
+.background--dark,
+.bg-dark {
+    background: #0c2050 !important;
+    color: #939eb8
 }
-.single-timeline-area .single-timeline-content .timeline-icon i {
-    color: #ffffff;
-    line-height: 30px;
+
+.background--secondary,
+.bg-secondary {
+    background-color: #939eb8 !important
 }
-.single-timeline-area .single-timeline-content .timeline-text h6 {
-    -webkit-transition-duration: 500ms;
-    transition-duration: 500ms;
+
+.background--tertiary,
+.bg-tertiary {
+    background-color: #9779e3 !important
 }
-.single-timeline-area .single-timeline-content .timeline-text p {
-    font-size: 13px;
-    margin-bottom: 0;
+
+.background--danger,
+.bg-danger {
+    background-color: #f53d55 !important
 }
-.single-timeline-area .single-timeline-content:hover .timeline-icon,
-.single-timeline-area .single-timeline-content:focus .timeline-icon {
-    background-color: #020710;
+
+.background--success,
+.bg-success {
+    background-color: #66df7c !important
 }
-.single-timeline-area .single-timeline-content:hover .timeline-text h6,
-.single-timeline-area .single-timeline-content:focus .timeline-text h6 {
-    color: #3f43fd;
+
+.background--warning,
+.bg-warning {
+    background-color: #f6c460 !important
+}
+
+.background--warning2,
+.bg-warning2 {
+    background-color: #f89c59 !important
+}
+
+.background--info,
+.bg-info {
+    background-color: #52bbd3 !important
+}
+
+.background--light,
+.bg-light {
+    background-color: #f6f8fb !important
+}
+
+a {
+    text-decoration: none !important;
 }

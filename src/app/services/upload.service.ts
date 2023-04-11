@@ -12,20 +12,38 @@ export class UploadService {
 
   constructor(private http: HttpClient){}
 
-   upload(file: File): Observable<HttpEvent<any>> {
-    const formData: FormData = new FormData();
+//    upload(file: File): Observable<any> {
+//     const formData: FormData = new FormData();
 
-    formData.append('file', file);
+//     formData.append('file', file);
+//     // const headers = new HttpHeaders({'Access-Control-Allow-Origin':'*' })
+//     const req = new HttpRequest('POST', `${this.baseUrl}/upload`, formData,{
+//       reportProgress: true,
+//       responseType: 'json',
+//     });
 
-    const req = new HttpRequest('POST', `${this.baseUrl}/upload`, formData, {
-      reportProgress: true,
-      responseType: 'json'
-    });
+//     return this.http.post(`${this.baseUrl}/upload`,formData);
+//   }
 
-    return this.http.request(req);
-  }
+//   getFiles(): Observable<any> {
+//     return this.http.get(`${this.baseUrl}/files`);
+//   }
+// }
 
-  getFiles(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/files`);
-  }
+upload(file: File): Observable<HttpEvent<any>> {
+  const formData: FormData = new FormData();
+
+  formData.append('file', file);
+
+  const req = new HttpRequest('POST', `${this.baseUrl}/upload`, formData, {
+    reportProgress: true,
+    responseType: 'json'
+  });
+
+  return this.http.request(req);
+}
+
+getFiles(): Observable<any> {
+  return this.http.get(`${this.baseUrl}/files`);
+}
 }

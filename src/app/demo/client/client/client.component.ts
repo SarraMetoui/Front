@@ -13,6 +13,7 @@ export class ClientComponent implements OnInit {
 
   constructor(private router: ActivatedRoute, private service: ClientService) { }
   public clients: Client[];
+  public edit: Client;
   alert: boolean=false;
   ngOnInit(): void {
     this.getClient();
@@ -80,8 +81,8 @@ export class ClientComponent implements OnInit {
     );
   }
 
-  public onUpdateEmloyee(promotion: Client): void {
-    this.service.updateClient(this.router.snapshot.params.id, promotion).subscribe(
+  public onUpdateEmloyee(editForm: NgForm): void {
+    this.service.updateClient(this.router.snapshot.params.id, editForm.value).subscribe(
       (response: Client) => {
         console.log(response);
         this.getClient();
