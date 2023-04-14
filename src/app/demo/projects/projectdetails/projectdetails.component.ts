@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProjectsService } from 'src/app/services/projects.service';
 import { CommonModule } from '@angular/common';
-
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-projectdetails',
@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 })
 export class ProjectdetailsComponent implements OnInit {
 
-  constructor(private service: ProjectsService, private router: ActivatedRoute) { }
+  constructor(private location: Location, private service: ProjectsService, private router: ActivatedRoute) { }
    data:any;
    id:any; 
  
@@ -31,5 +31,8 @@ export class ProjectdetailsComponent implements OnInit {
         console.log(this.data)
     }
    )
+  }
+  goBack(): void {
+    this.location.back();
   }
 }

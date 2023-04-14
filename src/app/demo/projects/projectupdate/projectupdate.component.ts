@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ProjectsService } from 'src/app/services/projects.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-projectupdate',
   templateUrl: './projectupdate.component.html',
@@ -25,7 +26,7 @@ export class ProjectupdateComponent implements OnInit {
     version: new FormControl(''),
 
   })
-  constructor(private service: ProjectsService, private router: ActivatedRoute) { }
+  constructor(private location: Location, private service: ProjectsService, private router: ActivatedRoute) { }
 
   ngOnInit(): void {
 
@@ -68,5 +69,7 @@ export class ProjectupdateComponent implements OnInit {
   {
     this.alert=false;
   }
-
+  goBack(): void {
+    this.location.back();
+  }
 }

@@ -1,1 +1,52 @@
-<p>clientupdate works!</p>
+
+<div class="row">
+    <div class="col-sm-12">
+      <app-card cardTitle="Edit Client's details" >
+       
+       <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong> Success! </strong> The client was updated succefully ! 
+        <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="close">
+             <span aria-hidden="true">&times;</span>
+             </button>
+       </div>
+        <div class="row">
+          <div class="col-md-6">
+            <form [formGroup]="form" (ngSubmit)="UpdateUser()">
+              <div class="form-group">
+                <label for="email"> <b>Email address:</b></label>
+                <input id="emails"  type="email" class="form-control" formControlName="email" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+               
+                    <label for="name" ><b>Name:</b></label>
+                    <input  id="name" type="text" class="form-control" formControlName="name" placeholder="Client name" required>
+          
+              </div>
+              <div class="form-group">
+               
+                <label for="manager" ><b>Manager in charge: </b></label>
+                <input  id="manager" type="text" class="form-control" formControlName="manager" placeholder="Manager name" required>
+      
+          </div>
+          <div class="form-group">
+               
+            <label for="number" ><b>Number:</b></label>
+            <input  id="number" type="text" class="form-control" formControlName="number" placeholder="Client's number" required>
+  
+      </div>
+      <div class="form-group">
+               
+        <label for="address" ><b>Address;:</b></label>
+        <input  id="address" type="text" class="form-control" formControlName="address" placeholder="Client's address" required>
+
+  </div>
+              
+              <button type="submit" class="btn btn-primary">Submit</button>
+              <button (click)="goBack()"  class="btn btn-secondary">Back</button>
+            </form>
+          </div>
+        </div>
+      </app-card>
+    </div>
+  </div>

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
 import { Task } from '../models/tasks';
+import { ActivatedRoute } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class TaskService {
   private URL6 = 'http://localhost:3000/task/project';
   private URL7 = 'http://localhost:3000/task/task';
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private route: ActivatedRoute) { }
 
   getTasks(): Observable<Task[]> {  
     return this.http.get<Task[]>(this.BASE_URL);  
@@ -37,10 +38,18 @@ export class TaskService {
     return this.http.get(`${this.URL4}/${id}`);
   }
 
-  addTask(task: Task): Observable<any>
-  {
-     return this.http.post<Task>(`${this.URL5}`,task )
+  // addTask(task: Task): Observable<any>
+  // {
+  //   const projectID = this.route.snapshot.paramMap.get('id'); // Extract the project ID from the URL
+  //   task.projectid = parseInt(projectID, 10); // Convert the project ID to a number and set it as the task's project ID
+  //    return this.http.post<Task>(`${this.URL5}`,task )
+  // }
+
+  addTask(task: Task, projectid: number): Observable<any> {
+    task.projectid = projectid;
+    return this.http.post<Task>(`${this.URL5}/${projectid}`, task);
   }
+  
 
   getProjectTasks(id:number): Observable<any>
   {

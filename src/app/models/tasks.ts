@@ -2,12 +2,14 @@
 
 export class Task {
     id? : number;
-    projectid?: number;
     name?: string;
     description?: string;
-    status?: Date;
+    status?: string;
     date?: Date;
     progress?: string; 
     priority?: string; 
+    time?: string;
+    duration?: string;
+    projectid?: number;
    
 }

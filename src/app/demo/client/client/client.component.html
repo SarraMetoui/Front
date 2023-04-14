@@ -92,7 +92,7 @@
             <footer class="card-footer flexbox align-items-left">
                
                 <div class="card-hover-show" >
-                    <a (click)="exampleModalPopoversLabel.show()" class="btn btn-xs fs-10 btn-bold btn-primary" >Edit</a>
+                    <a routerLink="/clients/edit/{{client.id}}" class="btn btn-xs fs-10 btn-bold btn-primary" >Edit</a>
                     <a (click)="remove(client.id)" class="btn btn-xs fs-10 btn-bold btn-danger">Delete</a>
                 </div>
             </footer>
@@ -258,7 +258,7 @@
                                <input type="text" ngModel name="name" class="form-control" id="name" placeholder="Company Name" required>
                             </div>
                             <div class="form-group">
-                               <label for="email">Manager in charge </label>
+                               <label for="email">Manager in charge</label>
                                <input type="text" ngModel name="manager" class="form-control" id="manager" placeholder="Foulen Foulen" required>
                             </div>
                             <div class="form-group">
@@ -285,7 +285,7 @@
                   </app-ui-modal>
 
 <!--EDIT MODAL-->
-                  <app-ui-modal #exampleModalPopoversLabel id="updateEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="employeeEditModalLabel" aria-hidden="true">
+                  <!-- <app-ui-modal #exampleModalPopoversLabel id="updateEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="employeeEditModalLabel" aria-hidden="true">
                     <div class="app-modal-header">
                       <h5 class="modal-title">Edit client</h5>
                       <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="exampleModalPopoversLabel.hide()"><span aria-hidden="true">&times;</span></button>
@@ -322,4 +322,4 @@
                             </form>
                     </div>
                    
-                  </app-ui-modal>
+                  </app-ui-modal> -->

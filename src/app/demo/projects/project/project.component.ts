@@ -4,6 +4,7 @@ import { UsersServiceService } from 'src/app/services/users-service.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ProjectsService } from 'src/app/services/projects.service';
 import { Project } from 'src/app/models/projects';
+import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-project',
   templateUrl: './project.component.html',
@@ -104,4 +105,18 @@ export class ProjectComponent implements OnInit {
   //     }
   //   );
   // }
+  public onAddPromotion(addForm: NgForm): void {
+    document.getElementById('add-employee-form').click();
+    this.service.addProject(addForm.value).subscribe(
+      (response: Project) => {
+        console.log(response);
+        this.getProjects();
+        addForm.reset();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+        addForm.reset();
+      }
+    );
+  }
 }

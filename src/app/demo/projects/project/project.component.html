@@ -58,7 +58,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                   <a routerLink="/projects/addproject"><i class="fa fa-fw fa-plus mr-2"></i>Add New Project</a>
+                   <a (click)="myLargeModalLabel.show()"><i class="fa fa-fw fa-plus mr-2"></i>Add New Project</a>
                   <hr>
                     <div class="table-responsive project-list">
                         
@@ -131,3 +131,81 @@
     </div>
     <!-- end row -->
 </div>
+
+<app-ui-modal #myLargeModalLabel id="addEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
+    <div class="app-modal-header">
+      <h5 class="modal-title">Add a new Project, type in the details:</h5>
+      <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="myLargeModalLabel.hide()"><span aria-hidden="true">&times;</span></button>
+    </div>
+    <div class="app-modal-body">
+      
+        <form #addForm="ngForm" (ngSubmit)="onAddPromotion(addForm)">
+            <div class="form-group">
+               <label for="name">Name</label>
+               <input type="text" ngModel name="name" class="form-control" id="name" placeholder="Company Name" required>
+            </div>
+            <div class="form-group" >
+               <label for="description">Description</label>
+               <input type="text" ngModel name="description" class="form-control" id="description" placeholder="Your project's description" required>
+            </div>
+            
+            <div class="row">
+            <div class="form-group" class="col-8 col-sm-6">
+                <label for="phase">phase</label>
+                <input type="text" ngModel name="phase" class="form-control" id="phase" placeholder="Test/ Design.." required>
+             </div>
+             <div class="form-group" class="col-4 col-sm-6">
+                <label for="department">Department</label>
+                <input type="text" ngModel name="department" class="form-control" id="department" placeholder="Department's name" required>
+             </div>
+            </div>
+             <div class="row">
+             <div class="form-group" class="col-8 col-sm-6">
+                <label for="client">Client</label>
+                <input type="text" ngModel name="client" class="form-control" id="client" placeholder="Client's name" required>
+             </div>
+             <div class="form-group" class="col-4 col-sm-6">
+                <label for="manager">Manager</label>
+                <input type="text" ngModel name="manager" class="form-control" id="manager" placeholder="Manager's name" required>
+             </div>
+             </div>
+             <div class="row">
+                <div class="form-group" class="col-8 col-sm-6">
+                    <label for="status">status</label>
+                    <input type="text" ngModel name="status" class="form-control" id="status" placeholder="active/ inactive" required>
+                 </div>
+             <div class="form-group" class="col-4 col-sm-6">
+                <label for="progress">Progress</label>
+                <input type="text" ngModel name="progress" class="form-control" id="progress" placeholder="Progress" required>
+             </div>
+             </div>
+             
+             <div class="row">
+            
+             <div class="form-group" class="col-8 col-sm-6">
+                <label for="priority">Priority</label>
+                <input type="text" ngModel name="priority" class="form-control" id="priority" placeholder="Priority" required>
+             </div>
+             <div class="form-group" class="col-4 col-sm-6">
+                <label for="version">Version</label>
+                <input type="text" ngModel name="version" class="form-control" id="version" placeholder="version" required>
+             </div>   
+             </div><div class="row">
+               <div class="form-group" class="col-8 col-sm-6">
+                <label for="date">Date of creation</label>
+                <input type="date" ngModel name="date" class="form-control" id="date" placeholder="" required>
+             </div>   
+               <div class="form-group" class="col-4 col-sm-6">
+                <label for="deadline">Deadline</label>
+                <input type="date" ngModel name="deadline" class="form-control" id="deadline" placeholder="" required>
+             </div>
+            </div>
+           
+            <div class="app-modal-footer">
+               <button type="button" id="add-employee-form" class="btn btn-secondary" (click)="myLargeModalLabel.hide()" data-dismiss="modal">Close</button>
+               <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Save changes</button>
+            </div>
+            </form>
+    </div>
+   
+  </app-ui-modal>

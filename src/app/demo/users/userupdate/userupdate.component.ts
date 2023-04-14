@@ -11,7 +11,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class UserupdateComponent implements OnInit {
   alert: boolean=false;
   form= new FormGroup({
-    name: new FormControl(''),
+    name: new FormControl(''), 
     email: new FormControl('')
   })
   constructor(private router: ActivatedRoute, private service: UsersServiceService) { }
