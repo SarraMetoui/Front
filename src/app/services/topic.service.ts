@@ -14,7 +14,7 @@ export class TopicService {
   private URL = 'http://localhost:3000/topic/update';
   private URL4 = 'http://localhost:3000/topic/find';
   private URL5 = 'http://localhost:3000/topic/post';
-  // private URL6 = 'http://localhost:3000/task/project';
+  private URL6 = 'http://localhost:3000/topic/project';
   // private URL7 = 'http://localhost:3000/task/task';
 
   constructor(private http:HttpClient) { }
@@ -36,17 +36,22 @@ export class TopicService {
   getCurrentData(id:number): Observable<any>
   {
     return this.http.get(`${this.URL4}/${id}`);
-  }
+  } 
 
   addTopic(topic: Topic): Observable<any>
   {
      return this.http.post<Topic>(`${this.URL5}`,topic )
   }
+  addTopic2(topic: Topic, projectid: number): Observable<any> {
+    topic.projectid = projectid;
+    return this.http.post<Topic>(`${this.URL5}/${projectid}`, topic);
+  }
+  
 
-  // getProjectTasks(id:number): Observable<any>
-  // {
-  //   return this.http.get(`${this.URL6}/${id}`);
-  // }
+  getProjectTopics(id:number): Observable<any>
+  {
+    return this.http.get(`${this.URL6}/${id}`);
+  }
 
   // getTaskProject(id:number): Observable<any>
   // {

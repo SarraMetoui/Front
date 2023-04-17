@@ -19,6 +19,7 @@ export class TaskdetailsComponent implements OnInit {
   public task: Task[];
 
   ngOnInit(): void {
+  
     console.log(this.router.snapshot.params.id);
     this.id= this.router.snapshot.params.id; 
     this.getDetails();
@@ -26,7 +27,7 @@ export class TaskdetailsComponent implements OnInit {
 
 
   getDetails()
-  {
+  { 
    this.service.getProjectTasks(this.id).subscribe(data=>
     {  
         this.data=data[0];

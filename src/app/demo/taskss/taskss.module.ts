@@ -9,9 +9,10 @@ import { TaskdetailsComponent } from './taskdetails/taskdetails.component';
 import {SharedModule} from '../../theme/shared/shared.module';
 import {NgbTabsetModule} from '@ng-bootstrap/ng-bootstrap';
 import { DisplaytasksComponent } from './displaytasks/displaytasks.component';
+import { EdittopicComponent } from './edittopic/edittopic.component';
 
 @NgModule({
-  declarations: [TasksComponent, AddtasksComponent, UpdatetasksComponent, TaskdetailsComponent, DisplaytasksComponent],
+  declarations: [TasksComponent, AddtasksComponent, UpdatetasksComponent, TaskdetailsComponent, DisplaytasksComponent, EdittopicComponent],
   imports: [
     CommonModule,
     TaskssRoutingModule,

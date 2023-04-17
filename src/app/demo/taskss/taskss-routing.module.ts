@@ -4,6 +4,8 @@ import { AddtasksComponent } from './addtasks/addtasks.component';
 import { TaskdetailsComponent } from './taskdetails/taskdetails.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { UpdatetasksComponent } from './updatetasks/updatetasks.component';
+import { DisplaytasksComponent } from './displaytasks/displaytasks.component';
+import { EdittopicComponent } from './edittopic/edittopic.component';
 
 
 const routes: Routes = [
@@ -22,8 +24,16 @@ const routes: Routes = [
   component: TaskdetailsComponent
 },
 {
-  path: 'addtask',
+  path: 'addtask/:id',
   component: AddtasksComponent
+},
+{
+  path: 'display',
+  component: DisplaytasksComponent
+},
+{
+  path: 'edittopic/:id',
+  component: EdittopicComponent
 }
 ];
 

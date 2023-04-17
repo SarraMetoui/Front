@@ -2,27 +2,25 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { TaskService } from 'src/app/services/task.service';
+import { TopicService } from 'src/app/services/topic.service';
 
 @Component({
-  selector: 'app-updatetasks',
-  templateUrl: './updatetasks.component.html',
-  styleUrls: ['./updatetasks.component.scss']
+  selector: 'app-edittopic',
+  templateUrl: './edittopic.component.html',
+  styleUrls: ['./edittopic.component.scss']
 })
-export class UpdatetasksComponent implements OnInit {
+export class EdittopicComponent implements OnInit {
   alert: boolean=false;
   form= new FormGroup({
     name: new FormControl(''),
     description: new FormControl(''),
     status: new FormControl(''),
     date: new FormControl(''),
-    progress: new FormControl(''),
-    priority: new FormControl(''),
-    time: new FormControl(''),
-    duration: new FormControl(''),
+    privacy: new FormControl(''),
+    
    
   })
-  constructor(private location: Location, private service: TaskService, private router: ActivatedRoute) { }
+  constructor(private location: Location, private service: TopicService, private router: ActivatedRoute) { }
 
   ngOnInit(): void { console.log(this.router.snapshot.params.id);
     console.log(this.service.getCurrentData(this.router.snapshot.params.id));
@@ -34,11 +32,8 @@ export class UpdatetasksComponent implements OnInit {
         description: new FormControl(result[0][0]['description']),
         status: new FormControl(result[0][0]['status']),
         date: new FormControl(result[0][0]['date']),
-        progress: new FormControl(result[0][0]['progress']),
-        priority: new FormControl(result[0][0]['priority']),
-        time: new FormControl(result[0][0]['time']),
-        duration: new FormControl(result[0][0]['duration'])
-
+        privacy: new FormControl(result[0][0]['privacy'])
+       
 
       })
     })
@@ -47,9 +42,9 @@ export class UpdatetasksComponent implements OnInit {
   
   Update()
   {
-    this.service.updateTask(this.router.snapshot.params.id, this.form.value).subscribe((result)=>
+    this.service.updateTopic(this.router.snapshot.params.id, this.form.value).subscribe((result)=>
     {
-     console.log(result, 'task updated successfuly!');
+     console.log(result, 'Topic updated successfuly!');
      this.alert=true;
     })
 
@@ -64,3 +59,4 @@ export class UpdatetasksComponent implements OnInit {
   }
 
 }
+

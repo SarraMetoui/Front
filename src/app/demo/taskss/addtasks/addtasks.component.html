@@ -1,66 +1,297 @@
-<div class="container">
-    <div class="row">
-      <div class="col-md-6 mx-auto">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Add a new task</h5>
-            <form>
-              <div class="form-group">
-                <label for="taskName">Task Name</label>
-                <input type="text" class="form-control" id="taskName" placeholder="Enter task name" required>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+<div class="col-sm-12">
+  <app-card [hidHeader]="true" cardClass="tab-card">
+    <h5 class="mb-3"></h5>
+    <ngb-tabset>
+      <ngb-tab title="TOPICS">
+        <ng-template ngbTabContent>
+          <div class="d-flex justify-content-between align-items-center">
+            <p class="lead m-t-0">This is the list of <mark>topics</mark> related to the project</p>
+            <ul class="list-inline ml-auto">
+                <li class="list-inline-item" > 
+                    <img  (click)="myLargeModalLabel.show()" src="https://img.icons8.com/ios/50/000000/plus.png" width="30" height="30" class="more align-self-center"> 
+                </li>
+            </ul>
+        </div>
+        
+            <div class="card mt-5 border-5 pt-2 active pb-0 px-3" *ngFor="let data of data">
+                <div class="card-body ">
+                  <span class="badge
+                  {{ data.status === 'active' ? 'bg-success' : 'bg-danger' }}
+                  text-white mb-3 align-self-end ms-auto text-end">
+              {{ data.status }}
+            </span>                   
+                    <div class="row">
+                        <div class="col-12 ">
+                            <h4 class="card-title "><b>{{data?.name}}</b></h4>
+                            <h6 class="card-subtitle mb-2 text-muted">{{data?.description}}</h6>
+                            <hr>
+
+                        </div>
+                       
+        
+                        <div class="col">
+                            <h6 class="card-subtitle mb-2 text-muted">
+                                <p class="card-text text-muted small ">
+                                    <img src="https://img.icons8.com/color/26/000000/christmas-star.png" class="mr-1 "
+                                        width="19" height="19" id="star"> <span class="vl mr-2 ml-0"></span>
+    
+                                        <i class="fa
+                                        {{ data.privacy === 'Private' ? 'fa-lock' : '' }}
+                                        {{ data.privacy === 'Public' ? 'fa-users' : '' }}
+                                        text-muted">
+                                </i> {{data.privacy}} <span class="vl ml-1 mr-2 "></span>
+    
+                                    <span></span>Updated by <span class="font-weight-bold"> Admin</span> on {{data.datetopic | date}}
+                                </p>
+                            </h6>
+                        </div>
+                    </div>
+    
+                </div>
+                <div class="card-footer bg-white px-0 ">
+                    <div class="row">
+    
+                        <div class=" col-md-auto ">
+                            <a routerLink="/tasks/edittopic/{{data.id}}" class="btn btn-outlined btn-black text-muted bg-transparent"
+                                data-wow-delay="0.7s"><img src="https://img.icons8.com/ios/50/000000/settings.png"
+                                    width="19" height="19"> <small> EDIT</small></a>
+    
+                            <i class="mdi mdi-settings-outline"></i>
+    
+    
+    
+    
+                            <a (click)="remove(data.id)" class="btn-outlined.btn-black.text-muted" style="cursor: pointer;">
+                              <img src="https://img.icons8.com/metro/26/000000/delete-sign.png" width="17" height="17" id="plus">
+                              <span>REMOVE THIS TOPIC</span>
+                            </a>
+                            
+    
+    
+                            <a href="#" class="btn btn-outlined btn-black text-muted "><img
+                                    src="https://img.icons8.com/metro/26/000000/more.png" width="20" height="20"
+                                    class="mr-2 more"><small>MORE</small></a>
+                            <span class="vl ml-3"></span>
+                            <button routerLink="/tasks/detailstask/{{data.id}}" class="btn btn-outline-primary float-end" type="button">View Tasks</button>
+
+                        </div>
+    
+                       
+                    </div>
+                </div>
+    
+    
+    
+    
+        </div>
+    
+    
+<!-- <div class="container my-5">
+  <div class="row">
+    <div class="col-lg-4 col-md-6 col-12 mb-4"*ngFor="let data of data">
+      <div class="card shadow h-100" >
+        <div class="card-body" >
+          <div class="d-flex flex-column h-100">
+               
+            <span class="badge bg-primary text-white mb-3 align-self-end">{{data?.status}}</span>
+            <h5 class="card-title mb-3">{{data?.name}}</h5>
+            <p class="card-text mb-4">{{data?.description}}. </p>
+            <div class="d-flex flex-column flex-grow-1">
+              <div class="d-flex align-items-center mt-auto">
+                <div class="d-flex flex-grow-1">
+                  <div class="me-3">
+                    <i class="fas  fa-circle"></i>
+                  </div>
+                  <div>
+                    <p class="m-0"><a href="#" target="_blank" class="text-dark fw-bold">Bootdey.com LLC.</a></p>
+                  </div>
+                </div>
+                <div class="d-flex flex-grow-1">
+                  <div class="me-3">
+                    <i class="fas fa-map-marker"></i>
+                  </div>
+                  <div>
+                    <p class="m-0">USA</p>
+                  </div>
+                </div>
               </div>
-              <div class="form-group">
-                <label for="project">Project</label>
-                <select class="custom-select" id="project" required>
-                  <option value="">Select project</option>
-                  <option value="1">Project 1</option>
-                  <option value="2">Project 2</option>
-                  <option value="3">Project 3</option>
-                </select>
+              
+              <div class="d-flex justify-content-end mt-3">
+                <a routerLink="/tasks/detailstask/{{data.id}}" class="btn btn-primary">View Tasks</a>
               </div>
-              <div class="form-group">
-                <label for="topic">Topic</label>
-                <select class="custom-select" id="topic" required>
-                  <option value="">Select topic</option>
-                  <option value="1">Topic 1</option>
-                  <option value="2">Topic 2</option>
-                  <option value="3">Topic 3</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="description">Task description</label>
-                <textarea class="form-control" id="description" rows="3" placeholder="Enter task description" required></textarea>
-              </div>
-              <div class="form-group">
-                <label for="date">Date</label>
-                <input type="date" class="form-control" id="date" required>
-              </div>
-              <div class="form-group">
-                <label for="time">Time</label>
-                <input type="time" class="form-control" id="time" required>
-              </div>
-              <div class="form-group">
-                <label for="duration">Duration</label>
-                <input type="text" class="form-control" id="duration" placeholder="e.g. 1h 30m" required>
-              </div>
-              <div class="form-group">
-                <label for="progress">Task Progress</label>
-                <input type="text" class="form-control" id="progress" placeholder="e.g. 50%" required>
-              </div>
-              <div class="form-group">
-                <label for="priority">Priority</label>
-                <select class="custom-select" id="priority" required>
-                  <option value="">Select priority</option>
-                  <option value="low">Low</option>
-                  <option value="medium">Medium</option>
-                  <option value="high">High</option>
-                </select>
-              </div>
-              <button type="submit" class="btn btn-primary btn-block">Add Task</button>
-            </form>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div> -->
+
+                </ng-template>
+      </ngb-tab>
+      <ngb-tab title="ISSUES">
+        <ng-template ngbTabContent>
+          <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-5">
+                      <div class="widget widget-reminder">
+                          <div class="widget-reminder-header">TODAY, NOV 4</div>
+                          <div class="widget-reminder-container">
+                              <div class="widget-reminder-time">
+                                  09:00<br />
+                                  12:00
+                              </div>
+                              <div class="widget-reminder-divider bg-success"></div>
+                              <div class="widget-reminder-content">
+                                  <h4 class="widget-title">Meeting with HR</h4>
+                                  <div class="widget-desc"><i class="fa fa-map-pin"></i> Conference Room</div>
+                              </div>
+                          </div>
+                          <div class="widget-reminder-container">
+                              <div class="widget-reminder-time">
+                                  20:00<br />
+                                  23:00
+                              </div>
+                              <div class="widget-reminder-divider bg-primary"></div>
+                              <div class="widget-reminder-content">
+                                  <h4 class="widget-title">Dinner with Richard</h4>
+                                  <div class="widget-desc"><i class="fa fa-map-pin"></i> Tom's Too Restaurant</div>
+                                  <div class="m-t-15">
+                                      <a href="#" class="pull-right">Contact</a>
+                                      <img src="https://bootdey.com/img/Content/avatar/avatar1.png" width="16" class="img-circle pull-left m-r-5" alt="" /> Richard Leong
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="widget-reminder-header">TOMORROW, NOV 5</div>
+                          <div class="widget-reminder-container">
+                              <div class="widget-reminder-time">All day</div>
+                              <div class="widget-reminder-divider bg-purple"></div>
+                              <div class="widget-reminder-content">
+                                  <h4 class="widget-title"><i class="fa fa-gift text-purple"></i> Terry Birthday</h4>
+                              </div>
+                          </div>
+                          <div class="widget-reminder-container">
+                              <div class="widget-reminder-time">
+                                  00:00<br />
+                                  00:30
+                              </div>
+                              <div class="widget-reminder-divider bg-danger"></div>
+                              <div class="widget-reminder-content">
+                                  <h4 class="widget-title">Server Maintenance</h4>
+                                  <div class="widget-desc"><i class="ti-pin"></i> Data Centre</div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div class="col-md-5">
+                      <div class="widget widget-reminder">
+                          <div class="widget-reminder-header">TODAY, NOV 5</div>
+                          <div class="widget-reminder-container">
+                              <div class="widget-reminder-time">
+                                  09:00<br />
+                                  12:00
+                              </div>
+                              <div class="widget-reminder-divider bg-success"></div>
+                              <div class="widget-reminder-content">
+                                  <h4 class="widget-title">Meeting with HR</h4>
+                                  <div class="widget-desc"><i class="fa fa-map-pin"></i> Conference Room</div>
+                              </div>
+                          </div>
+                          <div class="widget-reminder-container">
+                              <div class="widget-reminder-time">
+                                  20:00<br />
+                                  23:00
+                              </div>
+                              <div class="widget-reminder-divider bg-primary"></div>
+                              <div class="widget-reminder-content">
+                                  <h4 class="widget-title">Dinner with Richard</h4>
+                                  <div class="widget-desc"><i class="fa fa-map-pin"></i> Tom's Too Restaurant</div>
+                                  <div class="m-t-15">
+                                      <a href="#" class="pull-right">Contact</a>
+                                      <img src="https://bootdey.com/img/Content/avatar/avatar6.png" width="16" class="img-circle pull-left m-r-5" alt="" /> John Doe
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="widget-reminder-header">TOMORROW, NOV 5</div>
+                          <div class="widget-reminder-container">
+                              <div class="widget-reminder-time">All day</div>
+                              <div class="widget-reminder-divider bg-purple"></div>
+                              <div class="widget-reminder-content">
+                                  <h4 class="widget-title"><i class="fa fa-gift text-purple"></i> Terry Birthday</h4>
+                              </div>
+                          </div>
+                          <div class="widget-reminder-container">
+                              <div class="widget-reminder-time">
+                                  00:00<br />
+                                  00:30
+                              </div>
+                              <div class="widget-reminder-divider bg-danger"></div>
+                              <div class="widget-reminder-content">
+                                  <h4 class="widget-title">Server Maintenance</h4>
+                                  <div class="widget-desc"><i class="ti-pin"></i> Data Centre</div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+                </ng-template>
+      </ngb-tab>
+      <ngb-tab title="DOCUMENTS">
+        <ng-template ngbTabContent>
+          <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
+        </ng-template>
+      </ngb-tab>
+    </ngb-tabset>
+  </app-card>
+</div>
+
+<!-- content for the add modal for topic -->
+<app-ui-modal #myLargeModalLabel id="addEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
+  <div class="app-modal-header">
+    <h5 class="modal-title">Add a new topic, type in the details:</h5>
+    <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="myLargeModalLabel.hide()"><span aria-hidden="true">&times;</span></button>
+  </div>
+  <div class="app-modal-body">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Topic details</h5>
+      <form #addForm="ngForm" (ngSubmit)="onAddPromotion(addForm)">
+        <div class="form-group" >
+          <label for="name">Topic Name</label>
+          <input type="text" ngModel  name="name" class="form-control" id="name" placeholder="Enter topic name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="description">Topic description</label>
+          <textarea ngModel  name="description" class="form-control" id="description" rows="3" placeholder="Enter topic description" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="date">Date</label>
+          <input type="date" ngModel name="date" class="form-control" id="date" required>
+        </div>
+       <div class="form-group">
+          <label for="privacy">Topic Privacy</label>
+          <input type="text" ngModel  name="privacy" class="form-control" id="privacy" placeholder="e.g. Public" required>
+        </div> 
+        <div class="form-group">
+          <label for="status">Topic Status</label>
+          <input type="text" ngModel  name="status" class="form-control" id="status" placeholder="e.g. Active" required>
+        </div> 
   
+         
+          <div class="app-modal-footer">
+             <button type="button" id="add-employee-form" class="btn btn-secondary" (click)="myLargeModalLabel.hide()" data-dismiss="modal">Close</button>
+             <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Save changes</button>
+          </div>
+          </form>
+        </div>
+      </div>
+  </div>
+ 
+</app-ui-modal>
+

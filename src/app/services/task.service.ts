@@ -45,9 +45,9 @@ export class TaskService {
   //    return this.http.post<Task>(`${this.URL5}`,task )
   // }
 
-  addTask(task: Task, projectid: number): Observable<any> {
-    task.projectid = projectid;
-    return this.http.post<Task>(`${this.URL5}/${projectid}`, task);
+  addTask(task: Task, topicid: number): Observable<any> {
+    task.topicid = topicid;
+    return this.http.post<Task>(`${this.URL5}/${topicid}`, task);
   }
   
 

@@ -54,7 +54,7 @@ export class CrtApexComponent implements OnInit, OnDestroy {
       series: [{
         data: this.data
       }],
-      colors: ['#113F67'],
+      colors: ['#6d8ec7'],
       title: {
         text: 'Dynamic Updating Chart',
         align: 'left'

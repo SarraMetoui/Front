@@ -295,3 +295,21 @@ body {
   border: 0;
   margin-bottom: 1rem;
 }
+.black-button {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.black-button:hover {
+  background-color: #1d1d1d;
+
+}
+
+
+

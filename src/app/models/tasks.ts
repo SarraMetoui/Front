@@ -10,6 +10,6 @@ export class Task {
     priority?: string; 
     time?: string;
     duration?: string;
-    projectid?: number;
+    topicid?: number;
    
 }
