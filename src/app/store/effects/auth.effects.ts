@@ -111,7 +111,7 @@ LogOut: Observable<any> = this.actions.pipe(
   tap((user) => {
     localStorage.removeItem('token');
     localStorage.removeItem('role');
-    this.router.navigateByUrl('/home');
+    this.router.navigateByUrl('/authentification');
   })
 );
 

@@ -16,6 +16,8 @@ export class TaskdetailsComponent implements OnInit {
   constructor(private location: Location, private service: TaskService, private router: ActivatedRoute) { }
   data:any;
   id:any; 
+  public isCollapsed: boolean;
+
   public task: Task[];
 
   ngOnInit(): void {
@@ -23,6 +25,7 @@ export class TaskdetailsComponent implements OnInit {
     console.log(this.router.snapshot.params.id);
     this.id= this.router.snapshot.params.id; 
     this.getDetails();
+    this.isCollapsed = true;
   }
 
 

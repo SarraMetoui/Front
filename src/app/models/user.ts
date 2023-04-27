@@ -25,4 +25,8 @@ export class User {
     country?: string; 
     city?: string; 
     lastname?: string; 
+    topicid?:string;
+    department?:string;
+    status?:string;
+    tasks?:string
 }

@@ -71,56 +71,86 @@ const NavigationItems = [
     ]
   },
   {
-    id: 'Projects',
+    id: 'ui-element',
     title: 'Projects',
     type: 'group',
-    icon: 'feather icon-monitor',
+    icon: 'feather icon-layers',
     children: [
       {
-        id: 'statistics',
-        title: 'Projects List',
-        type: 'item',
-        url: '/projects',
-        icon: 'feather icon-file-text',
-        classes: 'nav-item'
+        id: 'basic',
+        title: 'Projects',
+        type: 'collapse',
+        icon: 'feather icon-monitor',
+        children: [
+          {
+            id: 'alert',
+            title: 'Projects List',
+            type: 'item',
+            url: '/projects'
+          },
+          {
+            id: 'button',
+            title: 'Manage projects',
+            type: 'item',
+            url: '/tasks'
+          }
+        ]
       }
     ]
   },
   {
-    id: 'Tasks',
-    title: 'Tasks',
+    id: 'ui-element',
+    title: 'Lists',
     type: 'group',
-    icon: 'feather icon-monitor',
+    icon: 'feather icon-layers',
     children: [
       {
-        id: 'statistics',
-        title: 'Tasks',
-        type: 'item',
-        url: '/tasks',
-        icon: 'feather icon-server',
-        classes: 'nav-item'
+        id: 'basic',
+        title: 'Lists',
+        type: 'collapse',
+        icon: 'feather icon-sidebar',
+        children: [
+          {
+            id: 'alert',
+            title: 'Topics List',
+            type: 'item',
+            url: '/topics'
+          },
+          {
+            id: 'button',
+            title: 'Tasks List',
+            type: 'item',
+            url: '/tasklist'
+          },
+          {
+            id: 'button',
+            title: 'Issues List',
+            type: 'item',
+            url: '/risks'
+          },
+          {
+            id: 'button',
+            title: 'Meetings List',
+            type: 'item',
+            url: '/meetings'
+          }
+        ]
       }
     ]
   },
+
+  
   {
     id: 'concepts',
-    title: 'Concepts',
+    title: 'Track',
     type: 'group',
     icon: 'feather icon-monitor',
     children: [
       {
         id: 'topics',
-        title: 'Topics',
+        title: 'Issue-Tracking',
         type: 'item',
-        url: '/topics',
-        icon: 'feather icon-sidebar',
-        classes: 'nav-item'
-      },
-      {
-        id: 'risks',
-        title: 'Risks',
-        type: 'item',
-        url: '/risks',
+        url: '/tasks/track',
         icon: 'feather icon-sidebar',
         classes: 'nav-item'
       },
@@ -136,21 +166,39 @@ const NavigationItems = [
     ]
   },
   {
-    id: 'meetings',
-    title: 'Meetings',
+    id: 'chat',
+    title: 'Chat',
     type: 'group',
-    icon: 'feather icon-calender',
+    icon: 'feather icon-monitor',
     children: [
       {
-        id: 'meetings',
-        title: 'Meetings',
+        id: 'chat',
+        title: 'Chat',
         type: 'item',
-        url: '/meetings',
-        icon: 'feather icon-camera',
+        url: '/message',
+        icon: 'feather icon-sidebar',
         classes: 'nav-item'
       }
+
     ]
   },
+  // {
+  //   id: 'chat',
+  //   title: 'Chat',
+  //   type: 'group',
+  //   icon: 'feather icon-camera'
+  //   children: [
+  //     {
+  //       id: 'topics',
+  //       title: 'Issue-Tracking',
+  //       type: 'item',
+  //       url: '/tasks/track',
+  //       icon: 'feather icon-sidebar',
+  //       classes: 'nav-item'
+  //     },
+  //   ]
+    
+  // },
   {
     id: 'ui-element',
     title: 'UI Element',

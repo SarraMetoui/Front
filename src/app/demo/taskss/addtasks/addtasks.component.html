@@ -1,35 +1,44 @@
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
 <div class="col-sm-12">
   <app-card [hidHeader]="true" cardClass="tab-card">
     <h5 class="mb-3"></h5>
     <ngb-tabset>
-      <ngb-tab title="TOPICS">
+      <ngb-tab title="TOPICS" >
         <ng-template ngbTabContent>
-          <div class="d-flex justify-content-between align-items-center">
-            <p class="lead m-t-0">This is the list of <mark>topics</mark> related to the project</p>
+          <div class="d-flex justify-content-between align-items-center" >
+            <p class="text-muted mb-1">This is the list of topics related to the project.</p>
+
+            <!-- <p class="lead m-t-0">This is the list of <mark>topics</mark> related to the project</p> -->
             <ul class="list-inline ml-auto">
-                <li class="list-inline-item" > 
+              <button (click)="myLargeModalLabel.show()" class="more align-self-center" type="button" class="btn btn-info btn-sm mr-2" data-toggle="modal" data-target="#addTaskModal">
+              Add New   <i class="fas fa-plus"></i> 
+              </button>
+                <!-- <li class="list-inline-item" > 
+                  Add new topic
                     <img  (click)="myLargeModalLabel.show()" src="https://img.icons8.com/ios/50/000000/plus.png" width="30" height="30" class="more align-self-center"> 
-                </li>
+                </li> -->
             </ul>
         </div>
-        
-            <div class="card mt-5 border-5 pt-2 active pb-0 px-3" *ngFor="let data of data">
-                <div class="card-body ">
-                  <span class="badge
-                  {{ data.status === 'active' ? 'bg-success' : 'bg-danger' }}
-                  text-white mb-3 align-self-end ms-auto text-end">
-              {{ data.status }}
-            </span>                   
+        <hr>
+            <div class="card mt-3  pt-2 active pb-0 px-3" *ngFor="let data of data">
+                <div class="card-body" >
+                                  
                     <div class="row">
                         <div class="col-12 ">
-                            <h4 class="card-title "><b>{{data?.name}}</b></h4>
+                          <div class="d-flex justify-content-between">
+                          
+                            <h5 class="card-title "><b>{{data?.name}}</b></h5>
+                            <span class="badge
+                          {{ data.status === 'active' ? 'bg-success' : 'bg-danger' }}
+                          text-white mb-3 align-self-end ms-auto text-end">
+                      {{ data.status }}
+                    </span>  
+                          </div>
                             <h6 class="card-subtitle mb-2 text-muted">{{data?.description}}</h6>
                             <hr>
 
-                        </div>
+                        
                        
-        
+                      </div>
                         <div class="col">
                             <h6 class="card-subtitle mb-2 text-muted">
                                 <p class="card-text text-muted small ">
@@ -49,35 +58,34 @@
                     </div>
     
                 </div>
-                <div class="card-footer bg-white px-0 ">
-                    <div class="row">
+                <div  class="card-footer bg-transparent px-0 ">
+                    <div class="col">
     
-                        <div class=" col-md-auto ">
-                            <a routerLink="/tasks/edittopic/{{data.id}}" class="btn btn-outlined btn-black text-muted bg-transparent"
+                      <div class="d-flex justify-content-between">
+                        <ul class="list-inline ml-auto">
+                            <a routerLink="/tasks/edittopic/{{data.id}}" class="btn btn-white float-end"
                                 data-wow-delay="0.7s"><img src="https://img.icons8.com/ios/50/000000/settings.png"
-                                    width="19" height="19"> <small> EDIT</small></a>
+                                    width="19" height="19"> <small> </small></a>
     
-                            <i class="mdi mdi-settings-outline"></i>
-    
-    
-    
-    
-                            <a (click)="remove(data.id)" class="btn-outlined.btn-black.text-muted" style="cursor: pointer;">
+                            <a (click)="remove(data.id)" class="btn btn-white float-end" style="cursor: pointer;">
                               <img src="https://img.icons8.com/metro/26/000000/delete-sign.png" width="17" height="17" id="plus">
-                              <span>REMOVE THIS TOPIC</span>
+                              
                             </a>
                             
     
-    
-                            <a href="#" class="btn btn-outlined btn-black text-muted "><img
+                           
+                        
+                          
+                            <a href="#" class="btn btn-white float-end"><img
                                     src="https://img.icons8.com/metro/26/000000/more.png" width="20" height="20"
-                                    class="mr-2 more"><small>MORE</small></a>
+                                    class="mr-2 more"><small></small></a>
                             <span class="vl ml-3"></span>
-                            <button routerLink="/tasks/detailstask/{{data.id}}" class="btn btn-outline-primary float-end" type="button">View Tasks</button>
-
+                            <div  class="btn-group float-end justify-content-start" role="group">
+                            <button routerLink="/tasks/detailstask/{{data.id}}" class="btn btn-secondary btn-sm float-end" type="button">Tasks</button>
+                            <button routerLink="/tasks/employee/{{data.id}}" class="btn btn-secondary btn-sm float-end" type="button">Collaborators</button>
+                          </div>
+                          </ul>
                         </div>
-    
-                       
                     </div>
                 </div>
     
@@ -132,121 +140,310 @@
       </ngb-tab>
       <ngb-tab title="ISSUES">
         <ng-template ngbTabContent>
-          <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<!-- issue-list.component.html -->
+<!-- <h1 class="h3 mb-3"><h2 class="text-uppercase text-letter-spacing-xs my-0 text-primary font-weight-bold">
+ Issue-Tracking</h2>Kanban Board</h1> -->
 
-          <div class="container">
-              <div class="row">
-                  <div class="col-md-5">
-                      <div class="widget widget-reminder">
-                          <div class="widget-reminder-header">TODAY, NOV 4</div>
-                          <div class="widget-reminder-container">
-                              <div class="widget-reminder-time">
-                                  09:00<br />
-                                  12:00
-                              </div>
-                              <div class="widget-reminder-divider bg-success"></div>
-                              <div class="widget-reminder-content">
-                                  <h4 class="widget-title">Meeting with HR</h4>
-                                  <div class="widget-desc"><i class="fa fa-map-pin"></i> Conference Room</div>
-                              </div>
-                          </div>
-                          <div class="widget-reminder-container">
-                              <div class="widget-reminder-time">
-                                  20:00<br />
-                                  23:00
-                              </div>
-                              <div class="widget-reminder-divider bg-primary"></div>
-                              <div class="widget-reminder-content">
-                                  <h4 class="widget-title">Dinner with Richard</h4>
-                                  <div class="widget-desc"><i class="fa fa-map-pin"></i> Tom's Too Restaurant</div>
-                                  <div class="m-t-15">
-                                      <a href="#" class="pull-right">Contact</a>
-                                      <img src="https://bootdey.com/img/Content/avatar/avatar1.png" width="16" class="img-circle pull-left m-r-5" alt="" /> Richard Leong
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="widget-reminder-header">TOMORROW, NOV 5</div>
-                          <div class="widget-reminder-container">
-                              <div class="widget-reminder-time">All day</div>
-                              <div class="widget-reminder-divider bg-purple"></div>
-                              <div class="widget-reminder-content">
-                                  <h4 class="widget-title"><i class="fa fa-gift text-purple"></i> Terry Birthday</h4>
-                              </div>
-                          </div>
-                          <div class="widget-reminder-container">
-                              <div class="widget-reminder-time">
-                                  00:00<br />
-                                  00:30
-                              </div>
-                              <div class="widget-reminder-divider bg-danger"></div>
-                              <div class="widget-reminder-content">
-                                  <h4 class="widget-title">Server Maintenance</h4>
-                                  <div class="widget-desc"><i class="ti-pin"></i> Data Centre</div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  
-                  <div class="col-md-5">
-                      <div class="widget widget-reminder">
-                          <div class="widget-reminder-header">TODAY, NOV 5</div>
-                          <div class="widget-reminder-container">
-                              <div class="widget-reminder-time">
-                                  09:00<br />
-                                  12:00
-                              </div>
-                              <div class="widget-reminder-divider bg-success"></div>
-                              <div class="widget-reminder-content">
-                                  <h4 class="widget-title">Meeting with HR</h4>
-                                  <div class="widget-desc"><i class="fa fa-map-pin"></i> Conference Room</div>
-                              </div>
-                          </div>
-                          <div class="widget-reminder-container">
-                              <div class="widget-reminder-time">
-                                  20:00<br />
-                                  23:00
-                              </div>
-                              <div class="widget-reminder-divider bg-primary"></div>
-                              <div class="widget-reminder-content">
-                                  <h4 class="widget-title">Dinner with Richard</h4>
-                                  <div class="widget-desc"><i class="fa fa-map-pin"></i> Tom's Too Restaurant</div>
-                                  <div class="m-t-15">
-                                      <a href="#" class="pull-right">Contact</a>
-                                      <img src="https://bootdey.com/img/Content/avatar/avatar6.png" width="16" class="img-circle pull-left m-r-5" alt="" /> John Doe
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="widget-reminder-header">TOMORROW, NOV 5</div>
-                          <div class="widget-reminder-container">
-                              <div class="widget-reminder-time">All day</div>
-                              <div class="widget-reminder-divider bg-purple"></div>
-                              <div class="widget-reminder-content">
-                                  <h4 class="widget-title"><i class="fa fa-gift text-purple"></i> Terry Birthday</h4>
-                              </div>
-                          </div>
-                          <div class="widget-reminder-container">
-                              <div class="widget-reminder-time">
-                                  00:00<br />
-                                  00:30
-                              </div>
-                              <div class="widget-reminder-divider bg-danger"></div>
-                              <div class="widget-reminder-content">
-                                  <h4 class="widget-title">Server Maintenance</h4>
-                                  <div class="widget-desc"><i class="ti-pin"></i> Data Centre</div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
+<div class="d-flex justify-content-between align-items-center">
+  <p class="text-muted mb-1">This is the list of issues related to this project.</p>
+<ul class="list-inline ml-auto">
+  <button (click)="myLargeModalLabel2.show()" class="more align-self-center" type="button" class="btn btn-info btn-sm mr-2" data-toggle="modal" data-target="#addTaskModal">
+    Add New   <i class="fas fa-plus"></i> 
+  </button>
+</ul>
+</div>
+
+<div class="row">
+   <div  *ngFor="let data of data3" class="col-md-6 col-xl-4"> 
+    
+        <!-- <div class="btn-group float-end justify-content-start" role="group">
+          <a  class="btn btn-white">
+            <img src="https://img.icons8.com/material/24/000000/edit--v1.png" width="14" height="14">
+          </a>
+          <a (click)="remove(data.id)" class="btn btn-white" style="cursor: pointer;">
+            <img src="https://img.icons8.com/metro/26/000000/delete-sign.png" width="14" height="14">
+          </a>
+        </div>                      -->
+        <div class="card small-card">
+          <div class="card-body">
+          
+          <div class="media align-items-center">
+            <div class="media-body overflow-hidden">
+              <div class="cart-item d-md-flex justify-content-between">
+
+              <h5 class="card-text text-uppercase mb-0">{{data.name}}</h5>
+              <div class="d-flex justify-content-between">
+                <span style=" cursor: pointer" type="button" (click)="remove(data.id)" class="edit-item"><i class="fa fa-edit"></i></span>            
+              <span>.</span>
+
+              <span style=" cursor: pointer" type="button" (click)="remove(data.id)" class="remove-item"><i class="fa fa-times"></i></span>
+            </div>
               </div>
+              <p class="card-text  text-muted">{{data.description}}</p> 
+              <div class="cart-item d-md-flex justify-content-between">
+              <p><img src="https://www.svgrepo.com/show/457436/date-range.svg"
+                width="19" height="19"> {{data.date | date}}
+              </p>
+              
+              <span style="margin-top: 1px;" style="background-image: url(https://www.svgrepo.com/show/137343/warning.svg)" class="avatar avatar-xl mr-3"></span>
+                </div>
+              <p class="card-text">
+                
+                <!-- <span class="badge m-r-5 badge-light-warning">{{data.status}}</span>  -->
+                <span class="badge m-r-5
+                  {{ data.status === 'done' ? 'bg-success' : 'badge-warning' }}
+                  text-white mb-3 align-self-end ms-auto text-end">
+              {{ data.status }}
+    
+            </span> 
+            
+            </div>
+            
+
+            
           </div>
+
+        </div>
+       <!--  -->
+      </div>
+      
+    </div>
+    
+    
+    
+</div>
+
+
+
+       
                 </ng-template>
+      </ngb-tab>
+      <ngb-tab title="MEETINGS">
+        <ng-template ngbTabContent>
+         
+          <div class="d-flex justify-content-between align-items-center">
+             <!-- <li class="list-inline-item" >
+              <img  (click)="myLargeModalLabel2.show()" src="https://img.icons8.com/ios/50/000000/plus.png" width="30" height="30" class="more align-self-center">  
+              <button (click)="myLargeModalLabel.show()" class="more align-self-center" type="button" class="btn btn-primary btn-sm mr-2" data-toggle="modal" data-target="#addTaskModal">
+                <i class="fas fa-plus"></i> Add New
+              </button>
+          </li> -->
+            <p class="text-muted mb-1">This is the list of meeting for the last 90 days</p>
+            
+          <ul class="list-inline ml-auto">
+           
+          
+            <label for="monthFilter">Filter by Month:</label>
+<select id="monthFilter" (change)="filterMeetings($event.target.value)">
+  <option value="">All Months</option>
+  <option value="January">January</option>
+  <option value="February">February</option>
+  <option value="March">March</option>
+  <option value="April">April</option>
+  <option value="May">May</option>
+  <option value="June">June</option>
+  <option value="July">July</option>
+  <option value="August">August</option>
+  <option value="September">September</option>
+  <option value="October">October</option>
+  <option value="November">November</option>
+  <option value="December">December</option>
+</select>
+           
+          </ul>
+             
+          </div>
+          
+          <button (click)="myLargeModalLabel3.show()" class="more align-self-center" type="button" class="btn btn-info btn-sm mr-2" data-toggle="modal" data-target="#addTaskModal">
+                Add New   <i class="fas fa-plus"></i> 
+              </button>
+          <hr>
+            <div class="row">
+              <div class="col-lg-4 mb-3" id="Friday, Nov 13th">
+                <h5 class="mt-0 mb-3 text-dark op-8 font-weight-bold">
+                 This week
+                </h5>
+                <ul *ngFor="let data of filteredMeetings" class="list-timeline list-timeline-primary">
+                  <div *ngIf="data.week === ''">                    
+                  <!-- <li class="list-timeline-item p-0 pb-3 pb-lg-4 d-flex flex-wrap flex-column">
+                    <p class="my-0 text-dark flex-fw text-sm text-uppercase"><span class="text-inverse op-8">{{data.start}} - {{data.end}}</span> - {{data.name}}</p>
+                  </li> -->
+                  <li class="list-timeline-item show p-0 pb-3 pb-lg-4 d-flex flex-wrap flex-column" data-toggle="collapse" data-target="#day-1-item-2">
+                    <p class="my-0 text-dark flex-fw text-sm text-uppercase"><span class="text-primary font-weight-bold op-8 infinite animated flash" data-animate="flash" data-animate-infinite="1" data-animate-duration="3.5" style="animation-duration: 3.5s;">{{data.date | date}}</span>  - {{data.name}}</p>
+                    <p class="my-0 collapse flex-fw text-uppercase text-xs text-dark op-8 show" id="day-1-item-2"> {{data.start}} - {{data.end}} / <span class="text-primary">{{data.place}}</span> </p>
+                  </li>
+                  </div>
+                </ul>
+              </div>
+              <div class="col-lg-4 mb-3" id="Saturday, Nov 14th">
+                <h5 class="mt-0 mb-3 text-dark op-8 font-weight-bold">
+                  Last week
+                </h5>
+                <ul *ngFor="let data of filteredMeetings" class="list-timeline list-timeline-primary">
+                  <div *ngIf="data.week === 'week2'"> 
+                    <li class="list-timeline-item show p-0 pb-3 pb-lg-4 d-flex flex-wrap flex-column" data-toggle="collapse" data-target="#day-1-item-2">
+                      <p class="my-0 text-dark flex-fw text-sm text-uppercase"><span class="text-primary font-weight-bold op-8 infinite animated flash" data-animate="flash" data-animate-infinite="1" data-animate-duration="3.5" style="animation-duration: 3.5s;">{{data.date | date}}</span>  - {{data.name}}</p>
+                      <p class="my-0 collapse flex-fw text-uppercase text-xs text-dark op-8 show" id="day-1-item-2"> {{data.start}} - {{data.end}} / <span class="text-primary">{{data.place}}</span> </p>
+                    </li> 
+                  </div>             
+                </ul>
+              </div>
+              <div class="col-lg-4 mb-3" id="Sunday, Nov 15th">
+                <h5 class="mt-0 mb-3 text-dark op-8 font-weight-bold">
+                  Last Month
+                </h5>
+                <ul *ngFor="let data of filteredMeetings" class="list-timeline list-timeline-primary">
+                  <div *ngIf="data.week === 'week3'"> 
+                    <li class="list-timeline-item show p-0 pb-3 pb-lg-4 d-flex flex-wrap flex-column" data-toggle="collapse" data-target="#day-1-item-2">
+                      <p class="my-0 text-dark flex-fw text-sm text-uppercase"><span class="text-primary font-weight-bold op-8 infinite animated flash" data-animate="flash" data-animate-infinite="1" data-animate-duration="3.5" style="animation-duration: 3.5s;">{{data.date | date}}</span>  - {{data.name}}</p>
+                      <p class="my-0 collapse flex-fw text-uppercase text-xs text-dark op-8 show" id="day-1-item-2"> {{data.start}} - {{data.end}} / <span class="text-primary">{{data.place}}</span> </p>
+                    </li>
+                  </div>
+                </ul>
+              </div>
+            </div>
+      </ng-template>
       </ngb-tab>
       <ngb-tab title="DOCUMENTS">
         <ng-template ngbTabContent>
-          <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
-        </ng-template>
+          <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+          <div class="content">
+              <div class="container">
+                  <div class="row">
+                      <div class="col-12">
+                          <div class="card-box">
+                              <div class="row">
+                                  <div class="col-lg-6 col-xl-6">
+                                      <h4 class="header-title m-b-30">My Files</h4>
+                                  </div>
+                              </div>
+          
+                              <div class="row">
+                                  <div class="col-lg-3 col-xl-2">
+                                      <div class="file-man-box"><a href="" class="file-close"><i class="fa fa-times-circle"></i></a>
+                                          <div class="file-img-box"><img src="https://coderthemes.com/highdmin/layouts/assets/images/file_icons/pdf.svg" alt="icon"></div><a href="#" class="file-download"><i class="fa fa-download"></i></a>
+                                          <div class="file-man-title">
+                                              <h5 class="mb-0 text-overflow">invoice_project.pdf</h5>
+                                              <p class="mb-0"><small>568.8 kb</small></p>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-lg-3 col-xl-2">
+                                      <div class="file-man-box"><a href="" class="file-close"><i class="fa fa-times-circle"></i></a>
+                                          <div class="file-img-box"><img src="https://coderthemes.com/highdmin/layouts/assets/images/file_icons/bmp.svg" alt="icon"></div><a href="#" class="file-download"><i class="fa fa-download"></i></a>
+                                          <div class="file-man-title">
+                                              <h5 class="mb-0 text-overflow">Bmpfile.bmp</h5>
+                                              <p class="mb-0"><small>845.8 mb</small></p>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-lg-3 col-xl-2">
+                                      <div class="file-man-box"><a href="" class="file-close"><i class="fa fa-times-circle"></i></a>
+                                          <div class="file-img-box"><img src="https://coderthemes.com/highdmin/layouts/assets/images/file_icons/psd.svg" alt="icon"></div><a href="#" class="file-download"><i class="fa fa-download"></i></a>
+                                          <div class="file-man-title">
+                                              <h5 class="mb-0 text-overflow">Photoshop_file.ps</h5>
+                                              <p class="mb-0"><small>684.8 kb</small></p>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-lg-3 col-xl-2">
+                                      <div class="file-man-box"><a href="" class="file-close"><i class="fa fa-times-circle"></i></a>
+                                          <div class="file-img-box"><img src="https://coderthemes.com/highdmin/layouts/assets/images/file_icons/avi.svg" alt="icon"></div><a href="#" class="file-download"><i class="fa fa-download"></i></a>
+                                          <div class="file-man-title">
+                                              <h5 class="mb-0 text-overflow">Avifile.avi</h5>
+                                              <p class="mb-0"><small>5.9 mb</small></p>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-lg-3 col-xl-2">
+                                      <div class="file-man-box"><a href="" class="file-close"><i class="fa fa-times-circle"></i></a>
+                                          <div class="file-img-box"><img src="https://coderthemes.com/highdmin/layouts/assets/images/file_icons/cad.svg" alt="icon"></div><a href="#" class="file-download"><i class="fa fa-download"></i></a>
+                                          <div class="file-man-title">
+                                              <h5 class="mb-0 text-overflow">Cadfile.cad</h5>
+                                              <p class="mb-0"><small>95.8 mb</small></p>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-lg-3 col-xl-2">
+                                      <div class="file-man-box"><a href="" class="file-close"><i class="fa fa-times-circle"></i></a>
+                                          <div class="file-img-box"><img src="https://coderthemes.com/highdmin/layouts/assets/images/file_icons/txt.svg" alt="icon"></div><a href="#" class="file-download"><i class="fa fa-download"></i></a>
+                                          <div class="file-man-title">
+                                              <h5 class="mb-0 text-overflow">Mytextfile.txt</h5>
+                                              <p class="mb-0"><small>568.8 kb</small></p>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-lg-3 col-xl-2">
+                                      <div class="file-man-box"><a href="" class="file-close"><i class="fa fa-times-circle"></i></a>
+                                          <div class="file-img-box"><img src="https://coderthemes.com/highdmin/layouts/assets/images/file_icons/eps.svg" alt="icon"></div><a href="#" class="file-download"><i class="fa fa-download"></i></a>
+                                          <div class="file-man-title">
+                                              <h5 class="mb-0 text-overflow">Epsfile.eps</h5>
+                                              <p class="mb-0"><small>568.8 kb</small></p>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-lg-3 col-xl-2">
+                                      <div class="file-man-box"><a href="" class="file-close"><i class="fa fa-times-circle"></i></a>
+                                          <div class="file-img-box"><img src="https://coderthemes.com/highdmin/layouts/assets/images/file_icons/dll.svg" alt="icon"></div><a href="#" class="file-download"><i class="fa fa-download"></i></a>
+                                          <div class="file-man-title">
+                                              <h5 class="mb-0 text-overflow">Project_file.dll</h5>
+                                              <p class="mb-0"><small>684.3 kb</small></p>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-lg-3 col-xl-2">
+                                      <div class="file-man-box"><a href="" class="file-close"><i class="fa fa-times-circle"></i></a>
+                                          <div class="file-img-box"><img src="https://coderthemes.com/highdmin/layouts/assets/images/file_icons/sql.svg" alt="icon"></div><a href="#" class="file-download"><i class="fa fa-download"></i></a>
+                                          <div class="file-man-title">
+                                              <h5 class="mb-0 text-overflow">Website_file.sql</h5>
+                                              <p class="mb-0"><small>457.8 kb</small></p>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-lg-3 col-xl-2">
+                                      <div class="file-man-box"><a href="" class="file-close"><i class="fa fa-times-circle"></i></a>
+                                          <div class="file-img-box"><img src="https://coderthemes.com/highdmin/layouts/assets/images/file_icons/zip.svg" alt="icon"></div><a href="#" class="file-download"><i class="fa fa-download"></i></a>
+                                          <div class="file-man-title">
+                                              <h5 class="mb-0 text-overflow">invoice_project.pdf</h5>
+                                              <p class="mb-0"><small>568.8 kb</small></p>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-lg-3 col-xl-2">
+                                      <div class="file-man-box"><a href="" class="file-close"><i class="fa fa-times-circle"></i></a>
+                                          <div class="file-img-box"><img src="https://coderthemes.com/highdmin/layouts/assets/images/file_icons/ps.svg" alt="icon"></div><a href="#" class="file-download"><i class="fa fa-download"></i></a>
+                                          <div class="file-man-title">
+                                              <h5 class="mb-0 text-overflow">invoice_project.pdf</h5>
+                                              <p class="mb-0"><small>568.8 kb</small></p>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-lg-3 col-xl-2">
+                                      <div class="file-man-box"><a href="" class="file-close"><i class="fa fa-times-circle"></i></a>
+                                          <div class="file-img-box"><img src="https://coderthemes.com/highdmin/layouts/assets/images/file_icons/png.svg" alt="icon"></div><a href="#" class="file-download"><i class="fa fa-download"></i></a>
+                                          <div class="file-man-title">
+                                              <h5 class="mb-0 text-overflow">invoice_project.pdf</h5>
+                                              <p class="mb-0"><small>568.8 kb</small></p>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="text-center mt-3">
+                                  <button type="button" class="btn btn-outline-danger w-md waves-effect waves-light"><i class="mdi mdi-refresh"></i> Load More Files</button>
+                              </div>
+                          </div>
+                      </div>
+                      <!-- end col -->
+                  </div>
+                  <!-- end row -->
+              </div>
+              <!-- container -->
+          </div>
+      </ng-template>
       </ngb-tab>
-    </ngb-tabset>
+    </ngb-tabset> 
   </app-card>
 </div>
 
@@ -257,7 +454,7 @@
     <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="myLargeModalLabel.hide()"><span aria-hidden="true">&times;</span></button>
   </div>
   <div class="app-modal-body">
-    <div class="card">
+    <div style="height: max-content;" class="card">
       <div class="card-body">
         <h5 class="card-title">Topic details</h5>
       <form #addForm="ngForm" (ngSubmit)="onAddPromotion(addForm)">
@@ -287,6 +484,98 @@
           <div class="app-modal-footer">
              <button type="button" id="add-employee-form" class="btn btn-secondary" (click)="myLargeModalLabel.hide()" data-dismiss="modal">Close</button>
              <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Save changes</button>
+          </div>
+          </form>
+        </div>
+      </div>
+  </div>
+ 
+</app-ui-modal>
+
+<!-- content for the add modal for issue -->
+
+<app-ui-modal #myLargeModalLabel2 id="addEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
+  <div class="app-modal-header">
+    <h5 class="modal-title">Add a new issue, type in the details:</h5>
+    <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="myLargeModalLabel2.hide()"><span aria-hidden="true">&times;</span></button>
+  </div>
+  <div class="app-modal-body">
+    <div style="height: max-content;"  class="card">
+      <div class="card-body">
+        <h5 class="card-title">Issue details</h5>
+      <form #addForm2="ngForm" (ngSubmit)="onAddPromotion2(addForm2)">
+        <div class="form-group" >
+          <label for="name">Issue Name</label>
+          <input type="text" ngModel  name="name" class="form-control" id="name" placeholder="Enter topic name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="description">Issue description</label>
+          <textarea ngModel  name="description" class="form-control" id="description" rows="3" placeholder="Enter topic description" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="date">Date</label>
+          <input type="date" ngModel name="date" class="form-control" id="date" required>
+        </div>
+       
+        <div class="form-group">
+          <label for="status">Topic Status</label>
+          <input type="text" ngModel  name="status" class="form-control" id="status" placeholder="e.g. Active" required>
+        </div> 
+  
+         
+          <div class="app-modal-footer">
+             <button type="button" id="add-employee-form" class="btn btn-secondary" (click)="myLargeModalLabel2.hide()" data-dismiss="modal">Close</button>
+             <button [disabled]="addForm2.invalid" type="submit" class="btn btn-primary" >Save changes</button>
+          </div>
+          </form>
+        </div>
+      </div>
+  </div>
+ 
+</app-ui-modal>
+
+<app-ui-modal #myLargeModalLabel3 id="addEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
+  <div class="app-modal-header">
+    <h5 class="modal-title">Add a new meeting, type in the details:</h5>
+    <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="myLargeModalLabel3.hide()"><span aria-hidden="true">&times;</span></button>
+  </div>
+  <div class="app-modal-body">
+    <div style="height: max-content;"  class="card">
+      <div class="card-body">
+        <h5 class="card-title">Meeting details</h5>
+      <form #addForm3="ngForm" (ngSubmit)="onAddPromotion3(addForm3)">
+        <div class="form-group" >
+          <label for="name">Meeting Name</label>
+          <input type="text" ngModel  name="name" class="form-control" id="name" placeholder="Enter meeting name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="description">Meeting description</label>
+          <textarea ngModel  name="description" class="form-control" id="description" rows="3" placeholder="Enter meeting description" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="date">Date</label>
+          <input type="date" ngModel name="date" class="form-control" id="date" required>
+        </div>
+       
+        <div class="form-group">
+          <label for="start">Start time</label>
+          <input type="time" ngModel  name="start" class="form-control" id="start" placeholder="e.g. Active" required>
+        </div> 
+        <div class="form-group">
+          <label for="end">End time</label>
+          <input type="time" ngModel  name="end" class="form-control" id="end" placeholder="e.g. Active" required>
+        </div> 
+        <div class="form-group">
+          <label for="place">Place</label>
+          <input type="text" ngModel  name="place" class="form-control" id="place" placeholder="e.g. Teams" required>
+        </div> 
+  
+         
+          <div class="app-modal-footer">
+             <button type="button" id="add-employee-form" class="btn btn-secondary" (click)="myLargeModalLabel3.hide()" data-dismiss="modal">Close</button>
+             <button [disabled]="addForm3.invalid" type="submit" class="btn btn-primary" >Save changes</button>
           </div>
           </form>
         </div>

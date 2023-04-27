@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-md-8">
+      <app-card cardTitle="Assign a task to this employee"  >
+        <!-- <div class="image"><img src="https://www.svgrepo.com/show/228341/organization-order.svg" alt="..." class="img-fluid"></div> -->
+       
+        <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+          <strong> Success! </strong> The task was assigned to the employee successfully! 
+          <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div> 
+        <form >
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="name"><b>Name</b></label>
+              <input id="name" type="text" name="name"  class="form-control" [(ngModel)]="task.name" placeholder="Project name" required>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="description"><b>Description</b></label>
+              <textarea id="description" type="text" name="description" class="form-control" [(ngModel)]="task.description" placeholder="Project's description" required></textarea>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="status"><b>Status</b></label>
+              <input id="status" type="text" name="status" class="form-control" [(ngModel)]="task.status" placeholder="Project's status" required>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="progress"><b>Progress</b></label>
+              <input id="progress" type="text" name="progress" class="form-control" [(ngModel)]="task.progress" placeholder="Project's progress" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="date"><b>Date</b></label>
+              <input id="date" type="date" name="date" class="form-control" [(ngModel)]="task.date" placeholder="Project date" required>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="time"><b>Time</b></label>
+              <input id="time" type="time" name="time" class="form-control" [(ngModel)]="task.time" placeholder="Project's time" required>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="duration"><b>Duration</b></label>
+              <input id="duration" type="text" name="duration" class="form-control" [(ngModel)]="task.duration" placeholder="Project's duration" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="priority"><b>Priority</b></label>
+              <input id="priority" type="text" name="priority" class="form-control" [(ngModel)]="task.priority" placeholder="Project priority" required>
+            </div>
+          </div>
+          <div class="form-row mt-3">
+            <div class="col-md-12">
+              <button  (click)="createTask()" type="submit" class="btn btn-success mr-2">Assign Task</button>
+              <button (click)="goBack()" class="btn btn-secondary">Go back</button>
+            </div>
+          </div>
+        </form>
+        
+      </app-card>
+    </div>
+  </div>
+  

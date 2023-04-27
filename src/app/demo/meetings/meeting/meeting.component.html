@@ -1,0 +1,83 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+
+<div class="container">
+  <div class="col-md-12 col-12 col-sm-12">
+    <div class="card">
+     
+    
+      <div class="card-header d-flex justify-content-between align-items-center">
+          <div style=" display: inline-flex; align-items: center;">
+            <img style=" margin-right: 20px" width="50" height="40" src="https://www.svgrepo.com/show/503862/calendar.svg">
+          <h4>All Meetings</h4>
+        </div>
+       
+        <!-- <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addTaskModal">
+          <i class="fas fa-plus"></i> Add New
+        </button> -->
+       
+      </div>
+      <div class="card-body">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha256-pTxD+DSzIwmwhOqTFN+DB+nHjO4iAsbgfyFq5K5bcE0=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha256-UhQQ4fxEeABh4JrcmAJ1+16id/1dnlOEVCFOxDef9Lw=" crossorigin="anonymous" />
+        <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div id="events" class="event-list owl-carousel owl-loaded owl-drag">
+                    <div class="owl-stage-outer">
+                        <div class="owl-stage">
+                            
+                            <div  *ngFor="let meeting of meetings" class="owl-item cloned"  style="width: 240px;">
+                                <div class="event-item featured">
+                                    <div class="event-schedule">
+                                        <svg 
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            class="feather feather-calendar event-icon">
+                                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                                        </svg>
+                                        <span class="event-day">{{meeting?.date | date:'dd'}}</span>
+                                        <div class="event-month-time">
+                                            <span>{{meeting?.date | date:'MM'}}</span>
+                                            <span>{{meeting?.date | date:'yyyy'}}</span>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="event-title">{{meeting?.name}}</a>
+                                    <p class="event-content">{{meeting?.description}}</p>
+                                    <ul class="event-participants">
+                                        <li class="event-user" data-toggle="tooltip" data-placement="top" data-skin-class="tooltip-base" data-html="true" title="<b>Keith J</b>" style="width: 32px; height: 32px;">
+                                            <img class="event-user-pic" src="https://www.svgrepo.com/show/399900/alarmclock.svg" alt="Profile Pic" />
+                                          </li>
+                                          <span style="margin-left: 8px;">{{meeting?.start}}</span> -  <span style="margin-left: 8px;">{{meeting?.end}}</span>
+
+                                    </ul>
+                                    <ul class="event-participants">
+                                        <li class="event-user" data-toggle="tooltip" data-placement="top" data-skin-class="tooltip-base" data-html="true" title="<b>Keith J</b>" style="width: 25px; height: 25px;">
+                                            <img class="event-user-pic" src="https://www.svgrepo.com/show/491916/location-color-bookmark.svg" alt="Profile Pic" />
+                                          </li>
+                                          <span style="margin-left: 8px;">{{meeting?.place}}</span>
+
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

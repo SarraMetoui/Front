@@ -11,6 +11,7 @@ export class UsersServiceService {
   private URL2 = 'http://localhost:3000/user/delete';
   private URL3 = 'http://localhost:3000/user/update';
   private URL4 = 'http://localhost:3000/user/find';
+  private URL6 = 'http://localhost:3000/user/topic';
 
 
   constructor(private http:HttpClient) { }
@@ -32,5 +33,9 @@ export class UsersServiceService {
   getCurrentData(id:number): Observable<any>
   {
     return this.http.get(`${this.URL4}/${id}`);
+  }
+  getProjectTopics(id:number): Observable<any>
+  {
+    return this.http.get(`${this.URL6}/${id}`);
   }
 }

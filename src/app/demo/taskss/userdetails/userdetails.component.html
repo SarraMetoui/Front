@@ -1,0 +1,219 @@
+
+
+<!-- <app-ui-modal #myLargeModalLabel id="addEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
+    <div class="app-modal-header" *ngFor="let data of data">
+      <h5 class="modal-title">Asign this task to {{data?.name}}</h5>
+      <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="myLargeModalLabel.hide()"><span aria-hidden="true">&times;</span></button>
+    </div>
+    <div class="app-modal-body">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Task details</h5>
+        <form #addForm="ngForm" (ngSubmit)="onAddPromotion(addForm)">
+          <div class="form-group" >
+            <label for="name">Task Name</label>
+            <input type="text" ngModel  name="name" class="form-control" id="name" placeholder="Enter task name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="description">Task description</label>
+            <textarea ngModel  name="description" class="form-control" id="description" rows="3" placeholder="Enter task description" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="date">Date</label>
+            <input type="date" ngModel name="date" class="form-control" id="date" required>
+          </div>
+           <div class="form-group">
+            <label for="time">Time</label>
+            <input type="time" ngModel name="time" class="form-control" id="time" required>
+          </div>
+         <div class="form-group">
+            <label for="duration">Duration</label>
+            <input type="text" ngModel  name="duration" class="form-control" id="duration" placeholder="e.g. 1h 30m" required>
+          </div> 
+         <div class="form-group">
+            <label for="progress">Task Progress</label>
+            <input type="text" ngModel  name="progress" class="form-control" id="progress" placeholder="e.g. 50%" required>
+          </div>
+         <div class="form-group">
+            <label for="priority">Task Priority</label>
+            <input type="text" ngModel  name="priority" class="form-control" id="priority" placeholder="e.g. high" required>
+          </div> 
+          <div class="form-group">
+            <label for="status">Task Status</label>
+            <input type="text" ngModel  name="status" class="form-control" id="status" placeholder="e.g. Ongoing" required>
+          </div> 
+    
+           
+            <div class="app-modal-footer">
+                <button type="button" id="add-employee-form" class="btn btn-secondary" (click)="myLargeModalLabel.hide()" data-dismiss="modal">Close</button> 
+               <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Save changes</button>
+            </div>
+            </form>
+          </div>
+        </div>
+    </div>
+   
+  </app-ui-modal> -->
+  
+  <div  class="container">
+    <div class="col-md-12 col-12 col-sm-12">
+      <div  class="card">
+       
+      
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <span>
+            <div style=" display: inline-flex; align-items: center;">
+            <img style=" margin-right: 20px" width="50" height="40" src="https://www.svgrepo.com/show/228334/teamwork-team.svg">
+             
+  
+           
+            <h5>Employees working on this topic</h5>
+          </div>
+          </span>
+          <div class="d-flex justify-content-between">
+            <button type="button" class="btn btn-success btn-sm mr-2" data-toggle="modal" data-target="#addTaskModal">
+              <i class="fas fa-plus"></i> Add New
+            </button>
+            <button (click)="goBack()" type="button" class="btn btn-success btn-sm mr-2" data-toggle="modal" data-target="#deleteTaskModal" data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?" data-confirm-yes="alert('Deleted')" title="previous page">
+              go back
+            </button>
+          </div>
+          
+          
+        </div>
+        
+        <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="main-box clearfix">
+                    <div class="table-responsive">
+                        <table class="table user-list">
+                            <thead>
+                                <tr>
+                                    <th><span>User</span></th>
+                                    <th><span>Created</span></th>
+                                    <th class="text-center"><span>Status</span></th>
+                                    <th><span>Email</span></th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let data of data">
+                                    <td>
+                                        <img class="img" src="https://www.svgrepo.com/show/227919/news-reporter-job.svg" alt="">
+                                        <a href="#" class="user-link">{{data.name}}</a>
+                                        <span class="user-subhead">{{data.email}}</span>
+                                    </td>
+                                    <td>
+                                        {{data.name}}
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="label label-default">Inactive</span>
+                                    </td>
+                                    <td>
+                                        <a href="#">mila@kunis.com</a>
+                                    </td>
+                                    <td style="width: 20%;">
+                                        <a href="#" class="table-link">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                        <a href="#" class="table-link">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                        <a href="#" class="table-link danger">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                    </td>
+                                </tr>
+                            
+                            </tbody>
+                        </table>
+                    </div>
+                    <ul class="pagination pull-right">
+                        <li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </div> -->
+      
+    
+        <div style="background-color:rgb(239, 242, 246)" class="card-body">
+            <section class="projects no-padding-top">
+       
+              <div class="container">
+                <!-- Project-->
+               
+                <div  *ngFor="let data of data" class="project">
+                  <div class="row bg-white has-shadow">
+                    <div class="left-col col-lg-6 d-flex align-items-center justify-content-between">
+                      <div class="project-title d-flex align-items-center">
+                        <div class="image"><img src="https://www.svgrepo.com/show/184944/business-card-identity.svg" alt="..." class="img-fluid"></div>
+                        <div class="text">
+                          <h3 class="h4"> {{data?.name}} </h3><small><b>{{data?.email}}</b></small>
+                    
+                        </div>
+                      </div>
+                      <div class="project-date"><span class="hidden-sm-down">{{data?.department}}</span></div>
+                    </div>
+                    
+                    <div class="right-col col-lg- d-flex align-items-center">
+                     
+                      <b>Status:</b><div class="time"><b> </b> </div>
+                      <div class="comments"><b><span class="badge
+                        {{ data.status === 'active' ? 'badge m-r-5 badge-info' : 'badge m-r-5 badge-warning' }}
+                        text-white mb-3 align-self-end ms-auto text-end">
+                    {{ data?.status }} 
+                  </span>  </b>
+                      </div>
+                  <b>N° Tasks:</b><div class="time"><b> </b> </div>
+                  <div class="comments"><b>5</b>
+                </div>
+                  
+                     
+                      
+                      <div>
+                        <a routerLink="/tasks/edituser/{{data.id}}" class="btn btn-outline-dark btn-sm mr-1" data-toggle="tooltip" title="Edit">
+                         Assign a task 
+                         <!-- <i class="fas fa-pencil-alt"></i> -->
+                        </a>
+                        <button (click)="remove(data.id)" ype="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#deleteTaskModal" data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?" data-confirm-yes="alert('Deleted')" title="Delete">
+                          <i class="fas fa-trash"></i>
+                        </button>
+                        
+                        
+                      </div>
+                     
+                    </div>
+                    
+                  </div>
+                
+                </div>
+             
+              </div>
+             </section>
+                
+          </div>
+    </div>
+
+    </div>
+  </div> 
+  
+  

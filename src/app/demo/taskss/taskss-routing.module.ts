@@ -6,6 +6,9 @@ import { TasksComponent } from './tasks/tasks.component';
 import { UpdatetasksComponent } from './updatetasks/updatetasks.component';
 import { DisplaytasksComponent } from './displaytasks/displaytasks.component';
 import { EdittopicComponent } from './edittopic/edittopic.component';
+import { IssuetrackComponent } from './issuetrack/issuetrack.component';
+import { UserdetailsComponent } from './userdetails/userdetails.component';
+import { UserupdateComponent } from './userupdate/userupdate.component';
 
 
 const routes: Routes = [
@@ -34,7 +37,21 @@ const routes: Routes = [
 {
   path: 'edittopic/:id',
   component: EdittopicComponent
+},
+{
+  path: 'track',
+  component: IssuetrackComponent
+},
+{
+  path: 'employee/:id',
+  component: UserdetailsComponent
+},
+
+{
+  path: 'edituser/:id',
+  component: UserupdateComponent
 }
+
 ];
 
 @NgModule({

@@ -1,4 +1,5 @@
 import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-ui-modal',
@@ -14,12 +15,21 @@ export class UiModalComponent implements OnInit {
   public visible = false;
   public visibleAnimate = false;
 
-  constructor() { }
-
+  constructor(private router: ActivatedRoute) { }
+ id:any;
   ngOnInit() {
+    console.log(this.router.snapshot.params.id);
+    this.id= this.router.snapshot.params.id; 
   }
 
   public show(): void {
+    
+    this.visible = true;
+    setTimeout(() => this.visibleAnimate = true, 100);
+    document.querySelector('body').classList.add('modal-open');
+  }
+  public show2(id:any): void {
+    id=this.id;
     this.visible = true;
     setTimeout(() => this.visibleAnimate = true, 100);
     document.querySelector('body').classList.add('modal-open');

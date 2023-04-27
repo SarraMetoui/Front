@@ -37,6 +37,9 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule, CanActivate } from '@angular/router';
 import { AuthGuardService as AuthGuard } from './services/auth-guard.service';
 import { LandingLayoutComponent } from './shared/components/layouts/landing-layout/landing-layout.component';
+import { ChattingComponent } from './chatting/chatting.component';
+import { EmployeeComponent } from './employee/employee.component';
+
 
 
 @NgModule({
@@ -55,7 +58,9 @@ import { LandingLayoutComponent } from './shared/components/layouts/landing-layo
     NavRightComponent,
     ConfigurationComponent,
     ToggleFullScreenDirective,
-    LandingLayoutComponent
+    LandingLayoutComponent,
+    ChattingComponent,
+    EmployeeComponent
     ],
   imports: [
     BrowserModule,

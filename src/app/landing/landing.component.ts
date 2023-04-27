@@ -8,6 +8,7 @@ import { LogOut } from '../store/actions/auth.actions';
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.scss']
 })
+
 export class LandingComponent implements OnInit {
   getState: Observable<any>;
   isAuthenticated: false;

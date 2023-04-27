@@ -14,17 +14,20 @@ export class TopicComponent implements OnInit {
 
   constructor(private service: TopicService) { }
   public topics: Topic[];
+  public activeTopics: Topic[]; // Add variable for active topics
+  public inactiveTopics: Topic[]; // Add variable for inactive topics
   alert: boolean=false;
 
   ngOnInit(): void {
     this.getTopics();
   }
 
-
   public getTopics(): void {
     this.service.getTopics().subscribe(
       (response: Topic[]) => {
         this.topics = response;
+        this.activeTopics = this.topics.filter(topic => topic.status === "active"); // Filter active topics
+        this.inactiveTopics = this.topics.filter(topic => topic.status === "inactive"); // Filter inactive topics
         console.log(this.topics);
       },
       (error: HttpErrorResponse) => {

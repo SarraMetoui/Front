@@ -1,204 +1,68 @@
-<section id="sectionJobList" class="section section-job-list gradient-light--lean-left">
-    <div class="container">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
 
-      <div class="row row-grid justify-content-center">
-
+<div class="container">
+  <div class="col-md-12 col-12 col-sm-12">
+    <div class="card">
      
-
-        <div class="col-md-10">
-
-          <form class="filter-form mt-5 mb-4">
-            <div class="row">
-
-              <div class="col-md-4 mb-3">
-                <div class="form-group">
-                  <label for="jobPosition">Department :</label>
-                  <select id="jobPosition" class="custom-select">
-                    <option value="position1">Design</option>
-                    <option value="position2">Testing</option>
-                    <option value="position3">Development Frontend</option>
-                    <option value="position4">Development Backend</option>
-                    <option value="position5">Conception</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="col-md-4 mb-3">
-                <div class="form-group">
-                  <label for="jobType">Priority :</label>
-                  <select id="jobType" class="custom-select">
-                    <option value="type1">High</option>
-                    <option value="type3">Medium</option>
-                    <option value="type4">Low</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="col-md-4 mb-3">
-                <div class="form-group">
-                  <label for="jobLocation">Phase : </label>
-                  <select id="jobLocation" class="custom-select">
-                    <option value="location1">Identification</option>
-                    <option value="location3">Evaluation</option>
-                    <option value="location2">Treatement</option>
-                    <option value="location4">Monitoring</option>
-                    <option value="location5">Release</option>
-                  </select>
-                </div>
-              </div>
-
-            </div>
-          </form>
-
-          <div  class="job-list__wrapper mb-6">
-            <h3  class="mb-4">Development Frontend</h3>
-
-            <a *ngFor="let front of fronts"  class="card p-0 mb-3 border-0 shadow-sm shadow--on-hover">
-              <div  class="card-body">
-                <span class="row justify-content-between align-items-center">
-                  <span class="col-md-5 color--heading">
-                    <span class="badge badge-circle background--danger text-white mr-3">FN</span> {{front?.name}}
-                  </span>
-
-                  <span class="col-5 col-md-3 my-3 my-sm-0 color--text">
-                    <i class="fas fa-clock mr-1"></i> {{front?.priority}}
-                  </span>
-
-                  <span class="col-7 col-md-3 my-3 my-sm-0 color--text">
-                    <i class="fas fa-map-marker-alt mr-1"></i> {{front?.phase}}
-                  </span>
-                  <a routerLink="/risks/details/{{front.id}}" > 
-                  <span class="d-none d-md-block col-1 text-center color--text">
-                    <small><i class="fas fa-chevron-right"></i></small>
-                  </span>
-                </a>
-                </span>
-              </div>
-            </a> <!-- Job Card -->
-          </div>
-            <div class="job-list__wrapper mb-6">
-
-            <h3 class="mb-4">Development Backend</h3>
-            <a *ngFor="let back of backs" class="card p-0 mb-3 border-0 shadow-sm shadow--on-hover">
-              <div class="card-body">
-                <span class="row justify-content-between align-items-center">
-                  <span class="col-md-5 color--heading">
-                    <span class="badge badge-circle background--warning text-white mr-3">BK</span> {{back?.name}} 
-                  </span>
-
-                  <span class="col-5 col-md-3 my-3 my-sm-0 color--text">
-                    <i class="fas fa-clock mr-1"></i>{{back?.priority}}
-                  </span>
-
-                  <span class="col-7 col-md-3 my-3 my-sm-0 color--text">
-                    <i class="fas fa-map-marker-alt mr-1"></i> {{back?.phase}}
-                  </span>
-
-                  <span class="d-none d-md-block col-1 text-center color--text">
-                    <small><i class="fas fa-chevron-right"></i></small>
-                  </span>
-                </span>
-              </div>
-            </a> <!-- Job Card -->
-          </div>
-
-          <div class="job-list__wrapper mb-6">
-            <h3 class="mb-4">Testing</h3>
-
-            <a *ngFor="let test of tests" href="career-single.html" class="card p-0 mb-3 border-0 shadow-sm shadow--on-hover">
-              <div class="card-body">
-                <span class="row justify-content-between align-items-center">
-                  <span class="col-md-5 color--heading">
-                    <span class="badge badge-circle background--success text-white mr-3">TS</span> {{test?.name}}
-                  </span>
-
-                  <span class="col-5 col-md-3 my-3 my-sm-0 color--text">
-                    <i class="fas fa-clock mr-1"></i> {{test?.priority}}
-                  </span>
-
-                  <span class="col-7 col-md-3 my-3 my-sm-0 color--text">
-                    <i class="fas fa-map-marker-alt mr-1"></i> {{test?.phase}}
-                  </span>
-
-                  <span class="d-none d-md-block col-1 text-center color--text">
-                    <small><i class="fas fa-chevron-right"></i></small>
-                  </span>
-                </span>
-              </div>
-            </a> <!-- Job Card -->
-          </div>
-            <!-- <a href="career-single.html" class="card p-0 mb-3 border-0 shadow-sm shadow--on-hover">
-              <div class="card-body">
-                <span class="row justify-content-between align-items-center">
-                  <span class="col-md-5 color--heading">
-                    <span class="badge badge-circle background--warning2 text-white mr-3">MD</span> Mobile Developer
-                  </span>
-
-                  <span class="col-5 col-md-3 my-3 my-sm-0 color--text">
-                    <i class="fas fa-clock mr-1"></i> Full-time
-                  </span>
-
-                  <span class="col-7 col-md-3 my-3 my-sm-0 color--text">
-                    <i class="fas fa-map-marker-alt mr-1"></i> San Fransisco, US
-                  </span>
-
-                  <span class="d-none d-md-block col-1 text-center color--text">
-                    <small><i class="fas fa-chevron-right"></i></small>
-                  </span>
-                </span>
-              </div>
-            </a> Job Card -->
-            <div class="job-list__wrapper mb-6">
-              <h3 class="mb-4">Design</h3>
-            <a *ngFor="let de of des" class="card p-0 mb-3 border-0 shadow-sm shadow--on-hover">
-              <div class="card-body">
-                <span class="row justify-content-between align-items-center">
-                  <span class="col-md-5 color--heading">
-                    <span class="badge badge-circle background--info text-white mr-3">DS</span> {{de?.name}}
-                  </span>
-
-                  <span class="col-5 col-md-3 my-3 my-sm-0 color--text">
-                    <i class="fas fa-clock mr-1"></i>{{de?.priority}}
-                  </span>
-
-                  <span class="col-7 col-md-3 my-3 my-sm-0 color--text">
-                    <i class="fas fa-map-marker-alt mr-1"></i> {{de?.phase}}
-                  </span>
-
-                  <span class="d-none d-md-block col-1 text-center color--text">
-                    <small><i class="fas fa-chevron-right"></i></small>
-                  </span>
-                </span>
-              </div>
-            </a> <!-- Job Card -->
-            </div>
-            
-            <div class="job-list__wrapper mb-6">
-              <h3 class="mb-4">Conception</h3>
-            <a *ngFor="let con of cons" class="card p-0 mb-3 border-0 shadow-sm shadow--on-hover">
-              <div class="card-body">
-                <span class="row justify-content-between align-items-center">
-                  <span class="col-md-5 color--heading">
-                    <span class="badge badge-circle background--tertiary text-white mr-3">CN</span> {{con?.name}}
-                  </span>
-
-                  <span class="col-5 col-md-3 my-3 my-sm-0 color--text">
-                    <i class="fas fa-clock mr-1"></i>{{con?.priority}}
-                  </span>
-
-                  <span class="col-7 col-md-3 my-3 my-sm-0 color--text">
-                    <i class="fas fa-map-marker-alt mr-1"></i> {{con?.phase}}
-                  </span>
-
-                  <span class="d-none d-md-block col-1 text-center color--text">
-                    <small><i class="fas fa-chevron-right"></i></small>
-                  </span>
-                </span>
-              </div>
-            </a> <!-- Job Card -->
-          </div>
+    
+      <div class="card-header d-flex justify-content-between align-items-center">
+          <div style=" display: inline-flex; align-items: center;">
+            <img style=" margin-right: 20px" width="50" height="40" src="https://www.svgrepo.com/show/503854/radio-station.svg">
+          <h4>All Issues</h4>
         </div>
+       
+        <!-- <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addissueModal">
+          <i class="fas fa-plus"></i> Add New
+        </button> -->
+       
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th class="text-center">
+                  Issue
+                </th>
+                <th>Name</th>
+                <th>Description</th>
+                <!-- <th>Progress</th> -->
+                <th>Status</th>
+                <th>Due Date</th>
+                <!-- <th>Priority</th> -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let issue of issues">
+                <td class=" text-center">
+                    <button (click)="remove(issue.id)" type="button" class="btn btn-link text-danger p-0" data-toggle="modal" data-target="#deleteissueModal" data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?" data-confirm-yes="alert('Deleted')" title="Delete">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    
+                </td>
+                <td><b>{{issue?.name}}</b></td>
+                <td>{{issue?.description}}</td>
+                <!-- <td class="align-middle">
+                    
+                  <div class="progress" data-height="4" data-toggle="tooltip" title="" data-original-title="100%" style="height: 4px;">
+                    <div class="progress-bar bg-red" [style.width.%]="issue.progress"  style="width: 100px;">
+                    </div>
+                  </div>
+                  <p>{{issue?.progress}}%</p>
+                </td> -->
+                <td><span class="badge m-r-5 badge-light-danger">{{issue?.status}}</span>
+                </td>
+                <td>{{issue?.date | date}}</td>
+                <!-- <td><span class="badge m-r-5 badge-light-success">{{issue?.priority}}</span> -->
 
+                 
+                
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+</div>

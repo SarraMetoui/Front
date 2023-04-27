@@ -1,0 +1,16 @@
+<app-card cardTitle="Track your issues">
+    
+    <ul class="list-inline ml-auto"><p class="text-muted mb-1">
+    <img src="https://www.svgrepo.com/show/439199/kanban.svg" width="17" height="17" id="plus">
+
+    Drag and drop to change the issue's Status.</p>
+   </ul>
+<div class="board">
+    <app-displaytasks *ngFor="let status of ['pending', 'in progress', 'done']"
+                [issues]="issues"
+                [status]="status"
+                (updateIssueStatus)="updateIssueStatus($event.issue, $event.newStatus)">
+    </app-displaytasks>
+  </div>
+
+</app-card>

@@ -1,6 +1,10 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { NextConfig } from '../../../app-config';
 import { Location } from '@angular/common';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
+import { AppState, selectAuthState } from '../../../store/app.states';
+import { LogOut } from '../../../store/actions/auth.actions';
 
 @Component({
   selector: 'app-admin',
@@ -12,8 +16,14 @@ export class AdminComponent implements OnInit {
   public navCollapsed: boolean;
   public navCollapsedMob: boolean;
   public windowWidth: number;
+////////////////auth
+  getState: Observable<any>;
+  isAuthenticated: false;
+  user = null;
+  errorMessage = null;
 
-  constructor(private zone: NgZone, private location: Location) {
+  constructor(private zone: NgZone, private location: Location, private store: Store<AppState>) {
+    // this.getState = this.store.select(selectAuthState);
     this.nextConfig = NextConfig.config;
     let currentURL = this.location.path();
     const baseHerf = this.location['_baseHref'];
@@ -35,6 +45,12 @@ export class AdminComponent implements OnInit {
   }
 
   ngOnInit() {
+    // this.getState.subscribe((state) => {
+    //   this.isAuthenticated = state.isAuthenticated;
+    //   this.user = state.user;
+    //   this.errorMessage = state.errorMessage;
+    // });
+
     if (this.windowWidth < 992) {
       this.nextConfig.layout = 'vertical';
       setTimeout(() => {
@@ -42,6 +58,7 @@ export class AdminComponent implements OnInit {
         (document.querySelector('#nav-ps-next') as HTMLElement).style.maxHeight = '100%'; // 100% amit
       }, 500);
     }
+    
   }
 
   navMobClick() {
@@ -55,6 +72,10 @@ export class AdminComponent implements OnInit {
         this.navCollapsedMob = !this.navCollapsedMob;
       }
     }
+  }
+ logOut(): void {
+    this.store.dispatch(new LogOut);
+    
   }
 
 }

@@ -14,6 +14,9 @@ import { AdminLayoutComponent } from './shared/components/layouts/admin-layout/a
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { DashDefaultComponent } from './demo/dashboard/dash-default/dash-default.component';
 import { UserspageComponent } from './demo/pages/userslist/userspage/userspage.component';
+import { MessageComponent } from './messages/message/message.component';
+import { ChattingComponent } from './chatting/chatting.component';
+import { EmployeeComponent } from './employee/employee.component';
 
 const routes: Routes = [
   
@@ -23,7 +26,7 @@ const routes: Routes = [
     component: AdminComponent,
     children: [
       {
-        path: 'user',
+        path: '',
         redirectTo: 'dashboard/default',
         pathMatch: 'full'
       },
@@ -98,9 +101,46 @@ const routes: Routes = [
       {
         path: 'risks',
         loadChildren: () => import('./demo/risks/risks.module').then(module => module.RisksModule)
+      },
+      {
+        path: 'tasklist',
+        loadChildren: () => import('./demo/tasklist/tasklist.module').then(module => module.TasklistModule)
+      }
+,
+      {
+        path: 'meetings',
+        loadChildren: () => import('./demo/meetings/meetings.module').then(module => module.MeetingsModule)
+      }
+      ,
+      {
+        path: 'chat',
+        loadChildren: () => import('./demo/chat/chat.module').then(module => module.ChatModule)
       }
 
     ]
+
+   
+  },
+  { 
+    path: '',
+    component: AuthComponent,
+    children: [
+        { path: 'signup', loadChildren: () => import('./signup/signup.module').then(m => m.SignupModule) },
+
+        { path: 'authentification', loadChildren: () => import('./authentification/authentification.module').then(m => m.AuthentificationModule) }
+
+    ]
+  }
+  ,
+  { 
+    path: 'message',
+    component:  ChattingComponent,
+    
+  },
+  { 
+    path: 'employee',
+    component:  EmployeeComponent,
+    
   }
  
   // {

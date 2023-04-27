@@ -11,5 +11,6 @@ export class Task {
     time?: string;
     duration?: string;
     topicid?: number;
+    uid?:number;
    
 }

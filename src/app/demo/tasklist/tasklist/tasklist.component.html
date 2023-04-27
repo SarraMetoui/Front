@@ -1,0 +1,68 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+
+<div class="container">
+  <div class="col-md-12 col-12 col-sm-12">
+    <div class="card">
+     
+    
+      <div class="card-header d-flex justify-content-between align-items-center">
+          <div style=" display: inline-flex; align-items: center;">
+            <img style=" margin-right: 20px" width="50" height="40" src="https://www.svgrepo.com/show/503858/card-holder.svg">
+          <h4>All Tasks</h4>
+        </div>
+       
+        <!-- <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addTaskModal">
+          <i class="fas fa-plus"></i> Add New
+        </button> -->
+       
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th class="text-center">
+                  Action
+                </th>
+                <th>Task</th>
+                <th>Description</th>
+                <th>Progress</th>
+                <th>Status</th>
+                <th>Due Date</th>
+                <th>Priority</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let task of tasks">
+                <td class=" text-center">
+                    <button (click)="remove(task.id)" type="button" class="btn btn-link text-danger p-0" data-toggle="modal" data-target="#deleteTaskModal" data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?" data-confirm-yes="alert('Deleted')" title="Delete">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    
+                </td>
+                <td><b>{{task?.name}}</b></td>
+                <td>{{task?.description}}</td>
+                <td class="align-middle">
+                    
+                  <div class="progress" data-height="4" data-toggle="tooltip" title="" data-original-title="100%" style="height: 4px;">
+                    <div class="progress-bar bg-red" [style.width.%]="task.progress"  style="width: 100px;">
+                    </div>
+                  </div>
+                  <p>{{task?.progress}}%</p>
+                </td>
+                <td><span class="badge m-r-5 badge-light-info">{{task?.status}}</span>
+                </td>
+                <td>{{task?.date | date}}</td>
+                <td><span class="badge m-r-5 badge-light-success">{{task?.priority}}</span>
+
+                 
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { Task } from '../models/tasks';
 import { ActivatedRoute } from '@angular/router';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -16,9 +17,10 @@ export class TaskService {
   private URL5 = 'http://localhost:3000/task/post';
   private URL6 = 'http://localhost:3000/task/project';
   private URL7 = 'http://localhost:3000/task/task';
+  private URL8 = 'http://localhost:3000/task/user';
+
 
   constructor(private http:HttpClient, private route: ActivatedRoute) { }
-
   getTasks(): Observable<Task[]> {  
     return this.http.get<Task[]>(this.BASE_URL);  
   } 
@@ -47,7 +49,14 @@ export class TaskService {
 
   addTask(task: Task, topicid: number): Observable<any> {
     task.topicid = topicid;
+   
     return this.http.post<Task>(`${this.URL5}/${topicid}`, task);
+  }
+  addTask2(task:Task, uid:number): Observable<any> {
+   
+    task.uid =uid;
+  
+    return this.http.post<Task>(`${this.URL8}/${uid}`, task);
   }
   
 
