@@ -17,6 +17,7 @@ import { UserspageComponent } from './demo/pages/userslist/userspage/userspage.c
 import { MessageComponent } from './messages/message/message.component';
 import { ChattingComponent } from './chatting/chatting.component';
 import { EmployeeComponent } from './employee/employee.component';
+import { GrafanadashComponent } from './grafanadash/grafanadash.component';
 
 const routes: Routes = [
   
@@ -140,6 +141,11 @@ const routes: Routes = [
   { 
     path: 'employee',
     component:  EmployeeComponent,
+    
+  },
+  { 
+    path: 'grafana',
+    component:  GrafanadashComponent,
     
   }
  

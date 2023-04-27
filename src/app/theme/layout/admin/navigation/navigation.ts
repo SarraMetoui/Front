@@ -182,6 +182,23 @@ const NavigationItems = [
 
     ]
   },
+  {
+    id: 'chat',
+    title: 'Grafana',
+    type: 'group',
+    icon: 'feather icon-monitor',
+    children: [
+      {
+        id: 'chat',
+        title: 'Chat',
+        type: 'item',
+        url: '/chat',
+        icon: 'feather icon-sidebar',
+        classes: 'nav-item'
+      }
+
+    ]
+  },
   // {
   //   id: 'chat',
   //   title: 'Chat',

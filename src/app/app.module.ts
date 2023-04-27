@@ -39,7 +39,7 @@ import { AuthGuardService as AuthGuard } from './services/auth-guard.service';
 import { LandingLayoutComponent } from './shared/components/layouts/landing-layout/landing-layout.component';
 import { ChattingComponent } from './chatting/chatting.component';
 import { EmployeeComponent } from './employee/employee.component';
-
+import { GrafanadashComponent } from './grafanadash/grafanadash.component';
 
 
 @NgModule({
@@ -60,7 +60,8 @@ import { EmployeeComponent } from './employee/employee.component';
     ToggleFullScreenDirective,
     LandingLayoutComponent,
     ChattingComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    GrafanadashComponent
     ],
   imports: [
     BrowserModule,
@@ -75,8 +76,7 @@ import { EmployeeComponent } from './employee/employee.component';
     StoreModule.forRoot(reducers, {}),
     EffectsModule.forRoot([AuthEffects]),
     NgbTabsetModule,
-    RouterModule
-  ],
+    RouterModule  ],
   providers: [NavigationItem, AuthService,   AuthGuard,
 
     {
