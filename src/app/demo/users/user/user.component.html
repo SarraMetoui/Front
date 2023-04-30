@@ -9,7 +9,7 @@
               </th>
               <th>Email</th>
               <th>Role</th>
-              <th class="text-right">Priority</th>
+              <th class="text-right">Activity</th>
               <th > Manage </th>
             </tr>
           </thead>
@@ -18,10 +18,10 @@
               <td>
              
                 <div class="d-inline-block align-middle">
-                  <img src="https://www.svgrepo.com/show/384674/account-avatar-profile-user-11.svg" alt="user image" class="img-radius wid-40 align-top m-r-15">
+                  <img src="https://www.svgrepo.com/show/331253/user.svg" alt="user image" class="img-radius wid-40 align-top m-r-15">
                   <div class="d-inline-block">
                     <h6>{{user.name}}</h6>
-                    <p class="text-muted m-b-0">Graphics Designer</p>
+                    <p class="text-muted m-b-0">{{user.department}}</p>
                   </div>
                 </div>
               </td>
@@ -31,6 +31,8 @@
               <td> 
                 <button routerLink="/users/edituser/{{user.id}}" class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
                 <button (click)="exampleModalCenter.show()" class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i> </button>
+                <button routerLink="/users/details/{{user.id}}" class="btn btn-info btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-file"></i> </button>
+
                 <div class="col-xl-4 col-md-6">
 
       

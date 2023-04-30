@@ -1,0 +1,77 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-white mb-5">
+               
+                <div class="card-heading clearfix border-bottom mb-4">
+                    <h4 class="card-title">Employee Details</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li class="position-relative booking" b>
+                            <div class="media">
+                                <div class="msg-img">
+                                    <img src="https://www.svgrepo.com/show/331253/user.svg" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <h5 class="mb-4">{{data.name }} {{data.lastname }} <span class="badge badge-primary mx-3">{{data.role}}</span><span class="badge badge-danger">{{data.status}}</span></h5>
+                                    <div class="mb-3">
+                                        <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">Email:</span>
+                                        <span class="bg-light-blue">{{data.email}}</span>
+                                    </div>
+                                    <div class="mb-3">
+                                        <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">Number:</span>
+                                        <span class="bg-light-blue">{{data.number}}</span>
+                                    </div> 
+                                    <div class="mb-3">
+                                        <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">Country:</span>
+                                        <span class="bg-light-blue">{{data.country }}</span>
+                                    </div>
+                                    <div class="mb-3">
+                                        <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">City:</span>
+                                        <span class="bg-light-blue">{{data.city }}</span>
+                                    </div>
+                                    <div class="mb-3">
+                                        <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">Adress:</span>
+                                        <span class="bg-light-blue">{{data.address }}</span>
+                                    </div>
+                                    <div class="mb-3">
+                                        <span class="mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">Number of tasks:</span>
+                                        <span class="bg-light-red">{{data.tasks }}</span>
+                                    </div>
+                                    <div class="mb-5">
+                                        <p>Vacations: <span class="badge m-r-5 badge-light-warning">{{data.vacation}} days</span> <input type="number" [(ngModel)]="vacations" (change)="updatevacations($event.target.value)"></p>                                       
+                                        <p>Absences: <span class="badge m-r-5 badge-light-warning">{{data.absent}} days</span><input type="number" [(ngModel)]="absences" (change)="updateAbsences($event.target.value)"></p>                                        
+                                    </div>
+                                    <a style="cursor: pointer;" (click)="alerts()" class="btn-gray">Save changes</a>
+                                    <a style="cursor: pointer;" (click)="goBack()" class="btn-gray">Go back</a>
+                                    
+                                    <div class="buttons-to-right">
+                                        <a style="cursor: pointer;"  (click)="sendEmail2()" class="btn-gray mr-2"><i class="far fa-check-circle mr-2"></i> Inform Vacations</a>
+                                        <a style="cursor: pointer;" (click)="sendEmail()" class="btn-gray"><i class="far fa-check-circle mr-2"></i> Inform Absence</a>
+                                    </div>
+                                    
+                                </div>
+                                <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+                                    <strong> Success! </strong> Changes were saved succefully ! 
+                                    <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="close">
+                                         <span aria-hidden="true">&times;</span>
+                                         </button>
+                                   </div> 
+                                   
+                
+                            </div>
+                        
+                        </li>
+    
+                    
+                    </ul>
+    
+                </div>
+            </div>
+    
+        </div>
+    </div>
+    </div>
+
+   

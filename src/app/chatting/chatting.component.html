@@ -55,17 +55,7 @@
       <div class="col-lg-8 col-md-12">
     <app-card cardTitle="Chat" cardClass="chat-card">
         <div class="chats"> 
-      <div  class="row m-b-20 m-t-20 received-chat">
-        <div class="col-auto p-r-0">
-          <img src="https://www.svgrepo.com/show/446481/avatar-portrait.svg" alt="user image" class="img-radius wid-40">
-        </div>
-        <div class="col">
-          <div class="msg">
-            <p class="m-b-0">Hello! How was your day?</p>
-          </div>
-          <p class="text-muted m-b-0"><i class="fa fa-clock-o m-r-10"></i>10:20am</p>
-        </div>
-      </div>
+    
       <div *ngFor="let msg of messages" class="row m-b-20 send-chat">
         <div class="col">
           <div class="msg">
@@ -75,6 +65,17 @@
         </div>
         <div class="col-auto p-l-0">
           <img src="https://www.svgrepo.com/show/446488/avatar.svg" alt="user image" class="img-radius wid-40">
+        </div>
+      </div>
+      <div  class="row m-b-20 m-t-20 received-chat">
+        <div class="col-auto p-r-0">
+          <img src="https://www.svgrepo.com/show/446481/avatar-portrait.svg" alt="user image" class="img-radius wid-40">
+        </div>
+        <div class="col">
+          <div class="msg">
+            <p class="m-b-0">Hello! How was your day?</p>
+          </div>
+          <p class="text-muted m-b-0"><i class="fa fa-clock-o m-r-10"></i>10:20am</p>
         </div>
       </div>
     </div>

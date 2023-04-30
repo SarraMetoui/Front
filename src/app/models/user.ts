@@ -29,4 +29,6 @@ export class User {
     department?:string;
     status?:string;
     tasks?:string
+    absent?:number;
+    vacation?:number;
 }
